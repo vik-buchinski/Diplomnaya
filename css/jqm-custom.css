@@ -1,0 +1,288 @@
+.ui-page > .ui-header,
+.ui-page > .ui-content {
+    border: none;
+    background: transparent;
+}
+.ui-content {
+    padding: 10px 5px 10px;
+}
+
+@media screen {
+    .ui-page > .ui-header,
+    .ui-page > .ui-content,
+    .ui-page > .ui-footer {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+.ui-header img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 100;
+}
+
+.ui-header div {
+    z-index: 99;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.ui-header div > a:first-child {
+    float: left;
+    margin: 5px;
+}
+.ui-header div > a:last-child {
+    float: right;
+    margin: 2px;
+}
+
+.ui-header div > span {
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    line-height: 40px;
+}
+
+.ui-page > .ui-footer {
+    border: 0;
+}
+
+#footer .ui-btn-icon-top:after {
+    top: 0;
+    width: 40px;
+    height: 30px;
+    margin-left: -20px;
+    box-shadow: none;
+    border-radius: 0;
+    background: url('../img/icons/navbar-icons.png');
+    background-size: 200px 30px;
+}
+#footer a {
+    font-size: 10px;
+    font-weight: normal;
+    text-shadow: none;
+    padding-bottom: .3em;
+}
+@media all and (max-width: 320px) {
+    #footer .ui-btn-text {
+        font-size: 8px;
+    }
+}
+#footer .ui-icon-custom-menu:after      { background-position: -40px 0; }
+#footer .ui-icon-custom-checkout:after  { background-position: -80px 0; }
+#footer .ui-icon-custom-specials:after  { background-position: -120px 0; }
+#footer .ui-icon-custom-call:after      { background-position: -160px 0; }
+
+/* forms: account, signup*/
+.ui-field-contain {
+    border: none;
+    margin: .1em 0;
+}
+.ui-field-contain.compact {
+    padding: 0;
+}
+.ui-controlgroup-label legend {
+    margin: 0 auto;
+}
+
+.ui-popup-screen {
+    position: fixed;
+}
+/* dialog */
+.ui-dialog { 
+    overflow-y: auto;
+    z-index: 99; 
+}
+.ui-dialog-contain {
+    background: #fff;
+}
+.ui-popup-container {
+    background: white;
+}
+.ui-disabled {
+    opacity: 0.7;
+}
+
+nav.large > .ui-btn {
+    border-width: 2px;
+    border-radius: 20px;
+    margin: 15px auto;
+    position: relative;
+    height: 70px;
+}
+nav.large > .ui-btn:first-child {
+    margin-top: 0;
+}
+nav.large > .ui-btn.narrow {
+    width: 60%;
+}
+
+nav.large > .ui-btn {
+    overflow: visible;
+    height: 100%;
+    padding: 0;
+    border: 0;
+}
+nav.large > .ui-btn:before {
+    content: '';
+    display: inline-block;
+    height: 100%; 
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+nav.large > .ui-btn:after {
+    background-color: transparent;
+    background-size: auto 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 34%;
+    height: 140%;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: -20%;
+    left: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+nav.large > .ui-btn span {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    width: 64%;
+    color: #FFFFFF;
+    font: 600 100%/115% Helvetica, Verdana, Arial, sans-serif;
+    text-shadow: none;
+    text-align: left;
+    text-decoration: none;
+    padding-left: 30%;
+    white-space: normal;
+}
+
+.ui-icon-administration:after { background-image: url('../img/home-buttons/administration.png'); }
+.ui-icon-browse-menu:after { background-image: url('../img/home-buttons/browse_our_menu.png'); }
+.ui-icon-checkout-deals:after { background-image: url('../img/home-buttons/check_out_deals.png'); }
+.ui-icon-manage-orders:after { background-image: url('../img/home-buttons/manage_orders.png'); }
+.ui-icon-call-order:after { background-image: url('../img/home-buttons/call_order.png'); }
+.ui-icon-social-operations:after { background-image: url('../img/home-buttons/social_operations.png'); }
+.ui-icon-make-reservation:after { background-image: url('../img/home-buttons/make_reservation.png'); }
+.ui-icon-my-coupons:after { background-image: url('../img/home-buttons/my_coupons.png'); }
+.ui-icon-our-photo:after { background-image: url('../img/home-buttons/our_photo.png'); }
+.ui-icon-locations:after { background-image: url('../img/home-buttons/locations.png'); }
+.ui-icon-my-account:after { background-image: url('../img/home-buttons/my_account.png'); }
+.ui-icon-invite-friends:after { background-image: url('../img/home-buttons/invite_friend.png'); }
+.ui-icon-share-friends:after { background-image: url('../img/home-buttons/share.png'); }
+.ui-icon-new-order:after { background-image: url('../img/home-buttons/new_order.png'); }
+.ui-icon-fast-order:after { background-image: url('../img/home-buttons/fast_reorder.png'); }
+.ui-icon-view-order:after { background-image: url('../img/home-buttons/view_order.png'); }
+.ui-icon-gift-card:after { background-image: url('../img/home-buttons/gift_card.png'); }
+
+.ui-icon-custom-phone:after { background-image: url('../img/icons/phone.png'); }
+.ui-icon-send-email:after { background-image: url('../img/icons/send_email.png'); }
+
+.ui-icon-cash { background-image: url('../img/icons/cash.png'); }
+.ui-icon-pickup { background-image: url('../img/icons/pickup.png'); }
+.ui-icon-delivery { background-image: url('../img/icons/delivery.png'); }
+.ui-icon-credit-card { background-image: url('../img/icons/credit-card.png'); }
+.ui-radio-icon { 
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 240px) {
+    nav.large > .ui-btn {
+        border-radius: 7px;
+        height: 32px;
+    }
+    nav.large > .ui-btn span {
+        font-size: 10px;
+    }
+}
+@media (min-width: 241px) and (max-width: 320px) {
+    nav.large > .ui-btn {
+        border-radius: 9px;
+        height: 44px;
+    }
+    nav.large > .ui-btn span{
+        font-size: 14px;
+    }
+}
+@media (min-width: 321px) and (max-width: 400px) {
+    nav.large > .ui-btn {
+        border-radius: 10px;
+        height: 45px;
+    }
+    nav.large > .ui-btn span{
+        font-size: 16px;
+    }
+}
+@media (min-width: 401px) and (max-width: 480px) {
+    nav.large > .ui-btn {
+        border-radius: 14px;
+        height: 58px;
+    }
+    nav.large > .ui-btn span{
+        font-size: 20px;
+    }
+}
+@media (min-width: 481px) and (max-width: 640px) {
+    nav.large > .ui-btn {
+        border-radius: 20px;
+        height: 60px;
+    }
+    nav.large > .ui-btn span{
+        font-size: 22px;
+    }
+}
+@media (min-width: 641px), screen and (min-width: 960px) {
+    .ui-page > .ui-content.adaptive {
+        width: 480px;
+        margin: 0 auto;
+    }
+    nav.large > .ui-btn {
+        border-radius: 20px;
+        height: 70px;
+        margin: 25px auto;
+    }
+    nav.large > .ui-btn span{
+        font-size: 24px;
+    }
+}
+@media (min-width: 768px) {
+    .ui-page > .ui-content.adaptive {
+        width: 560px;
+    }
+}
+
+.ui-dialog-contain .ui-listview li a, 
+.ui-popup-container .ui-listview li a {
+    white-space: normal;
+}
+
+.long-text {
+    white-space: normal !important;
+}
+
+[data-role=content] {
+    padding-bottom: 41px;
+}
+[data-role=footer] {
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.centered-listview-header > [data-role=list-divider] {
+    text-align: center;
+}

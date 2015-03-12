@@ -1,0 +1,158 @@
+#order-item-additional .additions-horizontal > .ui-btn-inner { padding: 0 5px 5px; text-overflow: initial; }
+#order-item-additional .additions-horizontal > .ui-btn-inner > .ui-btn-text { font-size: 13px; }
+
+#admin-list-orders-page .ui-listview { margin: 0; }
+
+#photo-gallery-home div, #thank-you-animation div { cursor: default !important; }
+.ui-selectmenu-list.ui-listview .ui-btn a.ui-link-inherit {
+    white-space: normal;
+}
+.ui-selectmenu-list.ui-listview .ui-btn-active a {
+    padding-left: 40px;
+    background: url(../img/icons/check.png) left center no-repeat;
+    background-size: 36px;
+}
+
+.ui-li-has-select .ui-select{
+  margin: 0 0 0 10px;
+}
+
+/* override theme */
+/* bar based on richies */
+.bar .ui-page {
+    background-color: #F1EAC5;
+    background-image: url('../img/restaurant/background-bar.jpg');
+}
+.bar [data-role="page"] .ui-header div {
+    background: #f1ac63;
+}
+.bar nav.large > .ui-btn {
+    background: #C45422;
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#D48F62), color-stop(100%,#9D4B27));
+    background: -webkit-linear-gradient(-82deg, #F4B794 0%,#C66433 42%,#BF531A 45%,#A54518 59%, #A04318 75%, #C45422 100%);
+    background: -ms-linear-gradient(bottom right, #F4B794 0%,#C66433 42%,#BF531A 45%,#A54518 59%, #A04318 75%, #C45422 100%);
+    background: linear-gradient(to right bottom, #F4B794 0%,#C66433 42%,#BF531A 45%,#A54518 59%, #A04318 75%, #C45422 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D48F62', endColorstr='#9D4B27',GradientType=1 );
+}
+.bar nav.large > .ui-btn.ui-btn-hover {
+    background: #C45422;
+}
+/* chinese based on tasteking */
+.chinese .ui-page {
+    background-color: #FEECC6;
+    background-image: url('../img/restaurant/background-chinese.jpg');
+}
+.chinese [data-role="page"] .ui-header div {
+    background: #c95e4c;
+}
+.chinese nav.large > .ui-btn {
+    background: #C60B18;
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#CA6D70), color-stop(100%,#C60B18));
+    background: -webkit-linear-gradient(-82deg, #C46E70 0%,#A1252A 42%,#970A0F 47%,#97090E 59%, #A40910 87%, #C60B18 100%);
+    background: -ms-linear-gradient(bottom right, #C46E70 0%,#A1252A 42%,#970A0F 47%,#97090E 59%, #A40910 87%, #C60B18 100%);
+    background: linear-gradient(to right bottom, #C46E70 0%,#A1252A 42%,#970A0F 47%,#97090E 59%, #A40910 87%, #C60B18 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C96D70', endColorstr='#C60B18',GradientType=1 );
+}
+.chinese nav.large > .ui-btn.ui-btn-hover {
+    background: #C60B18;
+}
+
+/* tsuki based on pizza */
+.sushi .ui-page {
+    background-color: #FAFAE5;
+    background-image: none; /* override */
+}
+
+.sushi [data-role="page"] .ui-header div {
+    background: #EC803F;
+}
+
+.sushi .ui-header > div > span {
+    color: #FFFFFF;
+}
+
+.sushi nav.large > .ui-btn {
+    background: #156F83;
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#7FD6EA), color-stop(100%,#156F83));
+    background: -webkit-linear-gradient(-82deg, #7FD6EA 0%,#60C5DB 32%,#5AC2D9 37%,#188198 59%, #13687B 87%, #156F83 100%);
+    background: -ms-linear-gradient(bottom right, #7FD6EA 0%,#60C5DB 32%,#5AC2D9 37%,#188198 59%, #13687B 87%, #156F83 100%);
+    background: linear-gradient(to right bottom, #7FD6EA 0%,#60C5DB 32%,#5AC2D9 37%,#188198 59%, #13687B 87%, #156F83 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7FD6EA', endColorstr='#156F83',GradientType=1 );
+}
+.sushi nav.large > .ui-btn.ui-btn-hover {
+    background: #156F83;
+}
+
+/* pizza based on paulies */
+.pizza .ui-page {
+    background-color: #E9E1CB;
+    background-image: url('../img/restaurant/background-pizza.jpg');
+}
+.pizza [data-role="page"] .ui-header > div {
+    background: #ffefd0;
+}
+.pizza .ui-header > div > span {
+    color: #960000;
+}
+.pizza nav.large > .ui-btn {
+    background: #1E3D1B;
+    border: 1px solid #5D7B5A;
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#8FAB8C), color-stop(100%,#254C21));
+    background: -webkit-linear-gradient(-82deg, #98B396 0%,#5D7B5A 32%,#4C6D48 37%,#1E3D1B 59%, #284B25 87%, #356331 100%);
+    background: -ms-linear-gradient(bottom right, #98B396 0%,#5D7B5A 32%,#4C6D48 37%,#1E3D1B 59%, #284B25 87%, #356331 100%);
+    background: linear-gradient(to right bottom, #98B396 0%,#5D7B5A 32%,#4C6D48 37%,#1E3D1B 59%, #284B25 87%, #356331 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8FAB8C', endColorstr='#254C21',GradientType=1 );
+}
+.pizza nav.large > .ui-btn.ui-btn-hover {
+    background: #356331;
+}
+/* italian based on valentinos */
+.italian .ui-page {
+    background-color: #FAF6E1;
+    background-image: url('../img/restaurant/background-italian.jpg');
+}
+.italian [data-role="page"] .ui-header > div {
+    background: #F9E3CB;
+}
+.italian .ui-header > div > span {
+    color: #960000;
+}
+.italian nav.large > .ui-btn {
+    background: #5AAD2F;
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#D1D0A3), color-stop(100%,#428722));
+    background: -webkit-linear-gradient(-87deg, #C2C074 0%,#B8C685 22%, #6A963A 55%, #5A8931 75%, #5AAD2F 100%);
+    background: -ms-linear-gradient(bottom right, #C2C074 0%,#B8C685 22%, #6A963A 55%, #5A8931 75%, #5AAD2F 100%);
+    background: linear-gradient(to right bottom, #C2C074 0%,#B8C685 22%, #6A963A 55%, #5A8931 75%, #5AAD2F 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D1D0A3', endColorstr='#428722',GradientType=1 ); 
+}
+.italian nav.large > .ui-btn.ui-btn-hover {
+    background: #5AAD2F;
+}
+
+.ui-dialog-background {
+	opacity: 0.5;
+	display: block !important;
+	-webkit-transition: opacity 0.5s ease-in;
+}
+ 
+.ui-dialog-background.pop.in {
+	opacity: 1;
+	-webkit-transition: opacity 0.5s ease-in;
+}
+ 
+.ui-dialog {
+	min-height: 100% !important;
+	background: transparent !important;
+}
+
+.unfixed-posittion {
+    position: absolute !important;
+}
+
+.fixed-posittion {
+    position: fixed !important;
+}
+
+.ui-li-count {
+    font-size: 11px;
+}

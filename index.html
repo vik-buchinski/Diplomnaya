@@ -1,0 +1,1551 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, maximum-scale=1.0, width=device-width, height=device-height, initial-scale=1" />
+    <title></title>
+
+    <link rel="stylesheet" href="libs/themes/#theme-section#.css" />
+    <link rel="stylesheet" href="libs/jquery.mobile-1.4.2.css" />
+    <!-- Start #css-section# -->
+    <link rel="stylesheet" href="css/jqm-custom.css" />
+    <link rel="stylesheet" href="css/additional.css" />
+    <link rel="stylesheet" href="css/overrides.css" />
+    <!-- End #css-section# -->
+</head>
+<body class="#theme-section#">
+    <div id="loader">
+        <img src="libs/images/ajax-loader.gif"/>
+    </div>
+    <div data-role="page" id="home-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+        </div>
+        <div data-role="content" class="adaptive">
+            <script id="animation-template" type="text/template">                
+                <% _.each(photos, function(photo) { %>
+                    <img style="width: 100%;" src="<%=photo.url%>"/>
+                <% }); %>
+            </script>
+            <div id="photo-gallery-home" style="width: 100%; top: -5px;" data-speed=2000>
+                <!-- Dynamic content -->
+            </div>
+
+            <div class="user-area">
+            		<span id="label-login"></span>
+                <a id="btn-login" href="#login-dialog" data-rel="dialog" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini" data-transition="pop">Log In</a>
+                <button id="btn-signup" onclick="openRegisterPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini">Register</button>
+                <button id="btn-logout" onclick="LogOut();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini">Log Out</button>
+            </div>
+            <nav class="large">
+                <button id="browse-menu-button" onclick="menuViewer.displayWholeMenu(MAIN_MENU_QUERY);" class="ui-btn ui-btn-icon-left ui-icon-browse-menu">
+                    <span></span>
+                </button>
+
+                <button id="order-call-button" onclick="callToOrder();" class="ui-btn ui-btn-icon-left ui-icon-call-order">
+                    <span>Call Us &amp;<br/>Order by Phone</span>
+                </button>
+                
+                <button id="specials-button" onclick="menuViewer.displayWholeMenu(SPECIALS_MENU_QUERY);" class="ui-btn ui-btn-icon-left ui-icon-checkout-deals">
+                    <span>Check Out these<br/>Great Deals</span>
+                </button>
+
+                <button id="coupons-button" onclick="coupons.gotoCouponsView();" class="ui-btn ui-btn-icon-left ui-icon-my-coupons">
+                    <span>My Coupons</span>
+                </button>
+
+                <button id="manage-your-orders-button" onclick="gotoScreen('#manage-your-order-page', false);" class="ui-btn ui-btn-icon-left ui-icon-manage-orders">
+                    <span>Manage Your Orders</span>
+                </button>
+
+                <button id="social-button" onclick="gotoScreen('#social-features-page', false);" class="ui-btn ui-btn-icon-left ui-icon-social-operations">
+                    <span>Get Social<br/>Share with Your Friends</span>
+                </button>
+
+                <button id="reservations-button" onclick="callUs(true);" class="ui-btn ui-btn-icon-left ui-icon-make-reservation">
+                    <span>Make a<br/>Reservation</span>
+                </button>
+
+                <button id="gift-card-button" onclick="gotoGiftCards();" class="ui-btn ui-btn-icon-left ui-icon-gift-card" style="display: none;">
+                    <span>Send Gift Cards</span>
+                </button>
+
+                <button onclick="gotoRestaurantLocationsView();" class="ui-btn ui-btn-icon-left ui-icon-locations">
+                    <span>Restaurant Locations</span>
+                </button>
+                
+                <button id="photowall-button" onclick="gotoScreen('#photo-wall-page', false);"  class="ui-btn ui-btn-icon-left ui-icon-our-photo">
+                    <span>Photo Wall</span>
+                </button>
+
+                <button onclick="attemptAccountView();" class="ui-btn ui-btn-icon-left ui-icon-my-account narrow">
+                    <span>My Account</span>
+                </button>
+                <button id="btn-admin" onclick="gotoAdminOrderList();" class="ui-btn ui-btn-icon-left ui-icon-administration narrow hidden">
+                    <span>Administration</span>
+                </button>
+            </nav>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="social-features-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Get Social</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <nav class="large">
+                <a onclick="sendEmail();" data-role="button" data-icon="share-friends">
+                    <span>Share with<br/>Your Friend</span>
+                </a>
+            </nav>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="manage-your-order-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Manage Your Orders</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <nav class="large">
+                <a onclick="startNewOrderGotoMenu();" data-role="button" data-icon="new-order">
+                    <span>Start a New Order</span>
+                </a>
+                <a onclick="ordersList();" data-role="button" data-icon="fast-order">
+                    <span>Fast Reorder<br/>from Saved Orders</span>
+                </a>
+                <a onclick="gotoViewOrderScreen();" data-role="button" data-icon="view-order">
+                    <span>View My<br/>Current Order</span>
+                </a>
+            </nav>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="add-item-to-order-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Add Item to Order</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive"><!-- Dynamic content --></div>
+        <div data-role="footer"></div>
+    </div>
+    
+    <div data-role="page" id="edit-order-item-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Edit Order Item</span>
+            </div>
+        </div>
+
+        <div data-role="content" class="adaptive"><!-- Dynamic content --></div>
+
+        <div data-role="footer"></div>
+    </div>
+    
+    <script id="customization-categories-template"  type="text/template">
+        <% _.each(customization_categories, function(category) { %>
+            <fieldset data-role="controlgroup" data-type="<% if(category.type == 'OPTIONAL_DETAILED') { %>vertical<% } else if(category.type == 'REQUIRED_DETAILED') { %>vertical<% } else if(category.type == 'REQUIRED_COMPACT') { %>horizontal<% } %>" data-mini="true" <% if(category.type == 'REQUIRED_COMPACT') { %> class="customization-item" <% } %>>
+                <legend><%=category.title%></legend>           
+                <% _.each(category.customization_items, function(item) { %>
+                    <input onclick="addItemToOrderPage.recalculatePrice();" type="<% if(category.type == 'OPTIONAL_DETAILED') { %>checkbox<% } else if(category.type == 'REQUIRED_DETAILED') { %>radio<% } else if(category.type == 'REQUIRED_COMPACT') { %>radio<% } %>" name="choice-name-<%=category.id%>" id="choice-<%=item.id%>" <% if(item.checked) { %>checked="checked"<% } %>>
+                    <label for="choice-<%=item.id%>">
+                        <%=item.name%><br/>
+                        <% if (item.cost && item.cost > 0) { %>
+                            <span class="ui-li-count currency"><%=item.cost%></span>
+                        <% } %>
+                    </label>
+                <% }); %>
+            </fieldset>
+        <% }); %>
+    </script>
+
+    <script id="add-item-to-order-template" type="text/template">
+        <ul data-role="listview" data-inset="true" class="details-list">
+            <% if (order != null) { %>
+                <li style="padding-right: 120px;">
+                    <small style="white-space: normal;">Current Order: <b><%=unescape(order.name)%></b></small>
+                    <span class="ui-li-count"><%=order.order_items.length%> items</span>
+                </li>
+            <% } %>
+            <li data-role="list-divider">
+                <% if (menu_category_image) { %>
+                    <img src='<%=menu_category_image%>'>
+                <% } %>
+                <h2><%=menu_category_name%></h2>
+            </li>
+            <li class="countable">                    
+                <h2><%=menu_item.name%></h2>
+                <p><%=menu_item.description%></p>
+                <% if (menu_item.cost && menu_item.cost > 0) { %>
+                    <span class='ui-li-count currency'><%=menu_item.cost%></span>
+                <% } %>
+            </li>
+            <% if (customization_categories_length > 0) { %>
+                <li data-role="list-divider">Select Your Options and Customization</li>
+                <li style="padding: .5em; text-align: center;" id="customization-categories-container">                        
+                    <span><a data-role="button" data-inline="true" data-mini="true" class="js-static" onclick="addItemToOrderPage.buildCustimizationCategories(<%=menu_item.id%>, <%=menu_category_id%>);">Reset customizations</a></span>
+                    <!-- Dynamic content -->
+				</li>
+            <% } %>
+
+            <li>
+                <div data-role="fieldcontain" class="compact">
+                    <label for="order-item-instructions" style="width: 100%; float: none;">Special Instructions</label>
+                    <textarea data-mini="true" style="resize: none; width: 100%;" name="order-item-instructions" id="order-item-instructions"></textarea>
+                </div>
+            </li>
+
+            <li>
+                <div data-role="fieldcontain" class="compact">
+                    <label for="count" style="margin: 0 20px 0; width: 60px; float: left;">
+                        Quantity
+                        <br/>
+                        <input type="number" readonly="readonly" name="count" style="text-align: center; width: 50px;" data-mini="true" id="count" value="1" min="1" data-highlight="true" />
+                    </label>
+                    <a style="margin-top: 2em;" data-theme="a" onclick="addItemToOrderPage.minus();" data-role="button" data-inline="true" data-mini="true" data-icon="minus">Less</a>
+                    <a style="margin-top: 2em;" data-theme="a" onclick="addItemToOrderPage.plus();" data-role="button" data-inline="true" data-mini="true" data-icon="plus">More</a>
+                </div>
+            </li>
+
+            <li>
+                <h2>Total Item Cost <br/><small>with quantity and additions</small></h2>
+                <span class="ui-li-count currency" id="total-item-cost"></span>
+            </li>
+        </ul>
+        <div class="block">
+            <a id="add-item-to-order" onclick="addItemToOrderPage.addItem();" data-role="button" data-icon="check">Add Item to Order</a>
+            <a id="save-order-item-changes" onclick="addItemToOrderPage.addItem(<%=orderItemId%>);" data-role="button" data-icon="check">Save Changes</a>
+            <a data-role="button" data-icon="delete" data-rel="back">Cancel</a>
+            <a id="delete-order-item" onclick="removeItemFromOrder(<%=orderItemId%>);" data-role="button" data-icon="minus">Delete Item</a>
+        </div>
+    </script>
+
+    <div data-role="page" id="order-delivery-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" data-reverse="true" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Delivery Options</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive block">
+            <div data-role="fieldcontain" id="delivery-locations-container"><!-- Dynamic content --></div>
+            
+            <script id="delivery-locations-template" type="text/template">
+                <span>Set Order Location:</span><br/>
+                <select id="submit-order-location" data-native-menu="false" onchange="updateOrderLocation()">
+                    <% _.each(locations, function(location) { %>
+                        <option value="<%=location.id%>" <% if(location.location_id && location.id == location.location_id) { %>selected="selected"<% } %>>
+                            <%=location.info.name%> - <%=location.address.address%>, <%=location.address.city%>
+                        </option>
+                    <% }); %>
+                </select>
+            </script>
+            <div id="types-container"><!-- Dynamic content --></div>
+            
+            <script id="delivery-type-template" type="text/template">
+                <fieldset data-role="controlgroup" data-type="horizontal" id="delivery-type">
+                    <legend>Choose Delivery Type:</legend>
+                    <% if(isPickUpAccepted) { %>
+                        <input type="radio" onclick="switchFromDelivery();" name="delivery-type-choice" id="pickup-choise" value="PICKUP"/>
+                        <label for="pickup-choise">
+                            <span class="ui-radio-icon ui-icon-pickup"></span> Pick Up
+                        </label>
+                    <% } %>
+
+                    <% if(isDeliveryAccepted) { %>
+                        <input type="radio" onclick="switchToDelivery();" name="delivery-type-choice" id="delivery-choise" value="DELIVERY"/>
+                        <label for="delivery-choise">
+                            Delivery <span class="ui-radio-icon ui-icon-delivery"></span>
+                        </label>
+                    <% } %>
+                </fieldset>
+            </script>
+
+            <form id="delivery-form" class="hidden" onsubmit="updateDeliveryAddress()">
+                <input data-clear-btn="true" type="text" class="required" minlength="10" name="delivery-address" id="delivery-address" placeholder="Address"/>
+                <input data-clear-btn="true" type="text" name="delivery-suite" id="delivery-suite" placeholder="Suite, Apt, etc."/>
+                <input data-clear-btn="true" type="text" name="delivery-city" id="delivery-city" placeholder="City"/>
+
+                <div id="delivery-container">
+                </div>
+            </form>
+            <script id="delivery-template" type="text/template">
+                <ul data-role="listview" data-inset="true" style="margin-bottom: -1px;">
+                    <% if(delivery_description) { %>
+                        <li>
+                            <h2>Delivery description:</h2>
+                            <p class="long-text"><%=delivery_description%></p>
+                        </li>
+                    <% } %>
+                    <li>Delivery Charge: <span class='currency ui-li-count'><%=delivery%></span></li>
+                </ul>
+            </script>
+            
+            <div id="price-container"></div>
+
+            <script id="order-pice-template" type="text/template">
+                <ul data-role="listview" data-inset="true" style="margin-top: 0;">
+                    <li>Tax<span class='currency ui-li-count'><%=tax%></span></li>
+                    <li>Total<span class='currency ui-li-count'><%=total%></span></li>
+                </ul>
+            </script>
+
+            <div data-role="fieldcontain" class="block">
+                <span>When do you want to receive your order?</span>
+                <select id="ready-time-select" data-mini="true" data-placeholder="true" data-native-menu="false">
+                    <option value="ASAP" selected="selected">As Soon as Possible</option>
+                    <option value="8:00 AM">8:00 AM</option>
+                    <option value="8:15 AM">8:15 AM</option>
+                    <option value="8:30 AM">8:30 AM</option>
+                    <option value="8:45 AM">8:45 AM</option>
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="9:15 AM">9:15 AM</option>
+                    <option value="9:30 AM">9:30 AM</option>
+                    <option value="9:45 AM">9:45 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="10:15 AM">10:15 AM</option>
+                    <option value="10:30 AM">10:30 AM</option>
+                    <option value="10:45 AM">10:45 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="11:15 AM">11:15 AM</option>
+                    <option value="11:30 AM">11:30 AM</option>
+                    <option value="11:45 AM">11:45 AM</option>
+                    <option value="12:00 AM">12:00 AM</option>
+                    <option value="12:15 AM">12:15 AM</option>
+                    <option value="12:30 PM">12:30 PM</option>
+                    <option value="12:45 AM">12:45 AM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="1:15 PM">1:15 PM</option>
+                    <option value="1:30 PM">1:30 PM</option>
+                    <option value="1:45 PM">1:45 PM</option>
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="2:15 PM">2:15 PM</option>
+                    <option value="2:30 PM">2:30 PM</option>
+                    <option value="2:45 PM">2:45 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="3:15 PM">3:15 PM</option>
+                    <option value="3:30 PM">3:30 PM</option>
+                    <option value="3:45 PM">3:45 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="4:15 PM">4:15 PM</option>
+                    <option value="4:30 PM">4:30 PM</option>
+                    <option value="4:45 PM">4:45 PM</option>
+                    <option value="5:00 PM">5:00 PM</option>
+                    <option value="5:15 PM">5:15 PM</option>
+                    <option value="5:30 PM">5:30 PM</option>
+                    <option value="5:45 PM">5:45 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                    <option value="6:15 PM">6:15 PM</option>
+                    <option value="6:30 PM">6:30 PM</option>
+                    <option value="6:45 PM">6:45 PM</option>
+                    <option value="7:00 PM">7:00 PM</option>
+                    <option value="7:15 PM">7:15 PM</option>
+                    <option value="7:30 PM">7:30 PM</option>
+                    <option value="7:45 PM">7:45 PM</option>
+                    <option value="8:00 PM">8:00 PM</option>
+                    <option value="8:15 PM">8:15 PM</option>
+                    <option value="8:30 PM">8:30 PM</option>
+                    <option value="8:45 PM">8:45 PM</option>
+                    <option value="9:00 PM">9:00 PM</option>
+                    <option value="9:15 PM">9:15 PM</option>
+                    <option value="9:30 PM">9:30 PM</option>
+                    <option value="9:45 PM">9:45 PM</option>
+                    <option value="10:00 PM">10:00 PM</option>
+                </select>
+            </div>
+
+            <br/>
+            <a href="#" onclick="validateDelivery();" data-role="button" data-icon="check">Choose Payment Method</a>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="payment-method">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" data-reverse="true" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Payment Details</span>
+            </div>
+        </div>
+        <div data-role="content" class="block adaptive">
+            <fieldset data-role="controlgroup" data-type="horizontal" id="payment-type">
+                <legend>Payment Method</legend>
+                <input type="radio" name="radio-payment" id="radio-payment-credit-input" value="CREDIT_CARD" checked="checked" onclick="creditCardSelected();"/>
+                <label for="radio-payment-credit-input" id="radio-payment-credit-label">
+                    <span class="ui-radio-icon ui-icon-credit-card"></span> Credit Card
+                </label>
+                <input type="radio" name="radio-payment" id="radio-payment-cash-input" value="CASH" onclick="cashSelected();"/>
+                <label for="radio-payment-cash-input" id="radio-payment-cash-label">
+                    Pay by Cash <span class="ui-radio-icon ui-icon-cash"></span>
+                </label>
+            </fieldset>
+            <br/>
+            <a href="#" id="credit-card-button" data-role="button" data-icon="forward" onclick="processPaymentType();">Choose Credit Card</a>
+            <a href="#" id="order-confirmation" data-role="button" data-icon="check" style="display: none;" onclick="processPaymentType();">Confirm Order</a>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="process-order-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" data-reverse="true" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Payment Information</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive block">
+            <a onclick="creditCards.useDifferent();" data-role="button" data-inline="true" data-mini="true" data-icon="forward">Use a Different Credit Card</a>
+            <div data-role="fieldcontain" class="block">
+                <span>Select Credit Card:</span>
+                <select data-native-menu="false" id="credit-cards-list"></select>
+            </div>
+
+            <br/>
+            <a href="#" data-role="button" data-icon="check" onclick="order.setCreditCard($('#credit-cards-list').val(), order.displayInfo);">Confirm Order</a>
+
+            <script id="credit-cards-template" type="text/template">
+                <% _.each(cards, function(card) { %>
+                    <option value="<%=card.creditCardId%>">
+                        <%=card.creditCardNumber%>
+                    </option>
+                <% }); %>
+            </script>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="enter-credit-card-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" data-reverse="true" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Card Details</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive"><form class="block" id="new-card-form"> </form></div>
+        <script id="enter-credit-card-template" type="text/template">
+            <input id="credit-card-number" name="credit-card-number" data-mini="true" data-clear-btn="true" value="<%=creditCardNumber%>" class="required card" placeholder="Card Number" />
+                
+            <div class="block">
+                <span for="credit-card-expiration-month" style="margin-right: 0.5em;">Expiration Date</span>
+                <div class="card-expiration-container" style="display: inline;"></div>
+            </div>
+
+            <input id="credit-card-security-code" name="credit-card-security-code" data-clear-btn="true" value="<%=creditCardSecCode%>" class="required" minlength="3" placeholder="Security Code"/>
+            
+            <input id="credit-card-full-name" name="credit-card-full-name" data-clear-btn="true" value="<%=creditCardFullName%>" class="required" minlength="3" placeholder="Cardholder Name"/>
+
+            <br/>
+            <input type="submit" data-role="button" data-icon="forward" value="Confirm Order" />            
+        </script>
+        <div data-role="footer"></div>
+    </div>
+
+    <script id="expiration-date-template" type="text/template">
+        <select id="credit-card-expiration-month" name="credit-card-expiration-month" data-mini="true" data-inline="true" data-native-menu="false" data-placeholder="false">
+            <% _.each(months, function(month) { %>
+                <option value="<%= month %>" <% if (month === current.month) { %> selected="selected"<% } %>>
+                    <%= month %>
+                </option>
+            <% }); %>
+        </select>
+        <span style="margin-right: 0.5em;">/</span>
+        <select id="credit-card-expiration-year" name="credit-card-expiration-year" data-mini="true" data-inline="true" data-native-menu="false" data-placeholder="false">
+            <%  _.each(years, function(year) { %>
+                <option value="<%= year %>" <% if (year === current.year) { %> selected="selected"<% } %>>
+                    <%= year %>
+                </option>
+            <% }); %>
+        </select>
+    </script>
+
+    <div data-role="page" id="previous-orders-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Your Saved Orders</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive"> <!-- Dynamical content --> </div>
+        <script id="saved-orders-item-template" type="text/template">
+            <ul data-role="listview" data-inset="true">
+                <% _.each(orders, function(order) { %>
+                    <li class="orderItem" data-icon="<% if (order.id == getCurrentOrderID()) { %>check<% } else { %>arrow-r<% } %>">
+                        <a onclick="createOrderFromPrevious(<%=order.id%>);">
+                            <h5>
+                                <i>Order Id: </i> #<%=order.id%>
+                            </h5>
+                            <p>
+                                <i>Order Name: </i> <%=unescape(order.name)%>
+                            </p>
+                            <p>
+                                <i>Ordered On: </i> <%=order.createdAt%>
+                            </p>
+                        </a>
+                    </li>
+                <% }); %>            
+            </ul>
+            <br/>
+        </script>
+        <div data-role="footer"></div>
+    </div>
+
+    <div id="order-name-editing-popup" data-role="popup" data-overlay-theme="c" data-transition="pop" class="ui-content" align="center" data-dismissible="false">
+        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
+        <form id="order-name-form">
+            <div id="popup-ordername-container"></div>
+            <a data-role="button" data-inline="true" data-rel="back" data-mini="true" data-theme="b">Cancel</a>
+            <input type="submit" data-role="button" data-inline="true" data-mini="true" data-theme="b" value="Save">
+        </form>
+        <script id="input-template" type="text/template">            
+            <input id="order-name-input" name="order-name-input" placeholder="Order name" value="<%=orderName%>" data-mini="true" class="required" minlength="3" />
+        </script>
+    </div>
+
+    <div data-role="page" id="view-order-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Your Current Order</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <!-- Dynamic content -->
+        </div>
+        <script id="view-order-template" type="text/template">
+            <ul data-role="listview" data-inset="true" class="details-list">
+                <li class="js-static" onclick="showEditPopup('<%=unescape(order.name)%>');" data-icon="edit">
+                    <a>
+                        <span>Order Name </span>
+                        <span class="ui-li-count" style="max-width:12.5em; overflow: hidden; text-overflow: ellipsis;"><%=unescape(order.name)%></span>
+                    </a>
+                </li>
+                <% _.each(order.order_items, function(orderItem) { %>
+                    <li class="orderItem" <% if (orderItem.editable) { %> data-icon="edit" <% } else { %> data-icon="star"<% } %>>
+                        <a <% if (orderItem.editable) { %>data-icon="edit" onclick="processAddMenuItemToOrder(<%=orderItem.menu_item_id%>, <%=orderItem.id%>);" <% }%>>
+                            <% if (orderItem.image_url) { %>
+                                <img src="<%=orderItem.image_url%>"/>
+                            <% } %>
+                            <h2><%=orderItem.name%></h2>
+                            <small>Quantity: <%=orderItem.quantity%></small>
+                            <% if (orderItem.total_cost && orderItem.total_cost > 0) { %>
+                                <span class="ui-li-count currency"><%=orderItem.total_cost%></span>
+                            <% } %>
+                            <% if (orderItem.special_instructions) { %>
+                                <br/>
+                                <small style="white-space: normal;">Special instructions: <%=orderItem.special_instructions%></small>
+                            <% } %>
+                            <% if (orderItem.comment) { %>
+                                <br/>
+                                <small style="white-space: normal;">Comment: <%=orderItem.comment%></small>
+                            <% } %>
+                        </a>
+                    </li>
+                <% }); %>
+                
+                <li class="js-static">
+                    <b>Subtotal</b>
+                    <span class='currency ui-li-count'><%=order.cost%></span>
+                </li>
+                <li class="js-static ui-li-has-select">
+                    <b>Tips</b>
+                    <select data-theme="a" id="tips-select" data-mini="true" data-native-menu="false" data-inline="true" onchange="onTipChanged();" <% if(order.order_items.length == 0) { %> disabled<% } %>>
+                        <option value="0" <% if(order.tips_percent == 0) { %>selected="selected" <% } %>>0%</option>
+                        <option value="10" <% if(order.tips_percent == 10) { %>selected="selected" <% } %>>10%</option>
+                        <option value="15" <% if(order.tips_percent == 15) { %>selected="selected" <% } %>>15%</option>
+                        <option value="20" <% if(order.tips_percent == 20) { %>selected="selected" <% } %>>20%</option>
+                        <option value="25" <% if(order.tips_percent == 25) { %>selected="selected" <% } %>>25%</option>
+                        <option value="30" <% if(order.tips_percent == 30) { %>selected="selected" <% } %>>30%</option>
+                    </select>
+                    <span class='currency ui-li-count'><%=order.tips%></span>
+                </li>
+                <li class="js-static">
+                    <b>Total</b>
+                    <span class='currency ui-li-count'><%=order.cost_without_tax%></span>
+                </li>
+            </ul>
+            <a href="#" onclick="sendOrderAutomatically = false; menuViewer.displayWholeMenu(menuCategories.getCurrentMenuType());" data-role="button" data-icon="arrow-r">Continue Ordering</a>
+            <a id="submit-button" style="<% if (order.order_items.length == 0) { %> display: none;<% } else { %> display: block; <% } %>" onclick="chooseDeliveryOptions();" data-role="button" data-icon="check">Choose Delivery Options</a>
+        </script>
+        
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="my-coupons-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a onclick="gotoScreen('#home-page', true);" data-direction="reverse" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>My Coupons</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <!-- Dynamic content -->
+        </div>               
+        <script id="coupons-template" type="text/template">
+            <% if(locations.length > 0) { %>
+                <div data-role="fieldcontain" class="block">
+                    <span>Set Order Location:</span><br/>
+                    <select id="coupons-locations-select" data-native-menu="false" onchange="coupons.changeLocation();">
+                        <% _.each(locations, function(location) { %>
+                            <option value="<%=location.id%>" <% if(location.location_id && location.id == location.location_id) { %>selected="selected"<% } %>>
+                                <%=location.info.name%> - <%=location.address.address%>, <%=location.address.city%>
+                            </option>
+                        <% }); %>
+                    </select>
+                </div>
+            <% } %>
+
+            <% if (coupons && coupons.length > 0) { %> 
+                <div data-role="listview" data-inset="true" class="custom-list">
+                    <% _.each(coupons, function(coupon) { %>
+                        <li data-icon="arrow-r">
+                            <a id="<%=coupon.id%>" onclick="coupons.gotoCouponView(<%=coupon.id%>)">
+                                <span>Title: <%= coupon.name || "Coupon" %></span>
+                                <span>Description: <%=coupon.description%></span>
+                                <span>Expires On: <%=coupon.expires_at%></span>
+                                <span>Status: <b>
+                                    <% if (coupon.status == "ISSUED") { %> VALID <% } else { %> <%=coupon.status%> <% } %>
+                                </b></span>
+                            </a>
+                        </li>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p class="block">No coupons</p>
+            <% } %>            
+        </script>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="coupon-details-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a href="#my-coupons-page" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>View and redeem Coupon</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <!-- Dynamic content -->
+        </div>
+        <script id="couponDetails" type="text/template">
+            <ul data-role="listview" data-inset="true" class="details-list">
+                <li data-role="list-divider"><%= name || "Coupon" %></li>
+                <li><%=description%></li>
+                <% if (restrictions) { %>
+                    <li><%=restrictions%></li>
+                <% } %>
+                <li>Expires on <%=expires_at%></li>
+            </ul>
+            <% if (status == "REDEEMED") { %>
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <img src="img/icons/check.png">
+                        <h2 style="white-space: initial;">Redeemed on <%=redeemed_at%></h2>
+                    </li>
+                </ul>
+            <% } else { %>
+                <a onclick="coupons.redeemCoupon(<%=id%>)" href="#" data-rel="popup" data-transition="pop" data-role="button" data-close-btn="none" <% if(status !== 'ISSUED') { %> class="ui-state-disabled" <% } %>> Redeem at the Restaurant</a>
+            <% } %>
+        </script>
+        <div data-role="footer"></div>
+    </div>
+    
+    <div data-role="page" id="thanks-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <span>Thank You for Your Order</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <p class="block" id="thank-text-container"></p><br/>
+            <script id="thank-text-template" type="text/template">
+                Thank You for Your order!<br/>
+                Order #<%=orderId%> will be ready soon!<br/>
+                In a 5 seconds you will be redirected to the home screen.
+            </script>
+            
+            <div id="thank-you-animation" class="slider-container" style="position: relative; top: -10px; left: -5px; right: -5px; width: 320px; height: 192px;">
+                <div u="slides" class="slider" style="cursor: pointer; position: absolute; overflow: hidden; width: 320px; height: 192px;">
+                </div>
+            </div>
+
+            <p class="block">
+                <a href="#" onclick="gotoScreen('#home-page', false);" data-inline="true" data-role="button">Go to Home Screen</a>
+            </p>
+            <br/>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="welcome-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <span>Welcome</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive block">
+            <script id="welcome-label-template" type="text/template">
+                Thank you for installing and welcome <%=restaurant%> to the mobile app. By using our mobile app you can now:
+            </script>
+            <p id="welcome-label-container"></p>
+            <ol data-role="listview" data-inset="true">
+                <li>Quickly and easily place pickup and delivery orders right from your phone</li>
+                <li>Receive our daily, holiday and other spacials by email, text message</li>
+                <li>Get coupons and offers</li>
+                <li>Earn rewards</li>
+                <li>Share, Invite and Connect with Your Friends</li>
+                <li>And much more...</li>
+            </ol>
+            <br/>
+            <nav class="large">
+                <a id="share-email-welcome-button" onclick="sendEmail();" data-role="button" data-icon="share-friends">
+                    <span>Share with<br/>Your Friend</span>
+                </a>
+                <a onclick="menuViewer.displayWholeMenu(MAIN_MENU_QUERY);" data-role="button" data-icon="browse-menu">
+                    <span>Browse Our Menu</span>
+                </a>
+            </nav>
+            <br/>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="register-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png" onclick="doNotShowItemWhenGoingToMenu(); gotoScreen('#home-page', true);" />
+            <div>
+                <a data-rel="back" onclick="$('#password1, #password2').val(''); isNeedGotoWelcome = true;" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Create Your FREE Account</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <form id="register-form" class="block">
+                <div data-role="fieldcontain">
+                    <input type="text" class="required" id="new-first-name" name="first-name" placeholder="First Name">
+                    <input type="text" class="required" id="new-last-name" name="last-name" placeholder="Last Name">
+                    <input type="text" class="required phone" id="new-phone" name="phone" placeholder="Phone">
+                    <input type="email" class="required email" id="new-email" name="email" placeholder="Email">
+                    <input minlength="4" class="required" type="password" id="new-password1" name="password1" placeholder="Password">
+                    <input type="password" class="required" equalto="#new-password1" id="new-password2" name="password2" placeholder="Confirm Password">
+                </div>
+
+                <div data-role="fieldcontain">
+                    <span class="js-select-name">Set Default Location:</span><br/>
+                    <select id="new-user-location" data-native-menu="false"></select>
+                </div>
+
+                <script id="location-select-template" type="text/template">
+                    <% if(features.order.by_app) { %>
+                        <option value="<%=id%>" <% if(location_id && id == location_id) { %>selected="selected"<% } %>>
+                            <%=info.name%> - <%=address.address%>, <%=address.city%>
+                        </option>
+                    <% } %>
+                </script>
+                
+                <fieldset data-role="controlgroup">
+                    <p class="block">How would you like to be reminded about our daily specials, chef specials, coupons, events and etc.</p>
+                    <input checked disabled type="checkbox" data-mini="true" name="new-email-rem" id="new-email-rem">
+                    <label for="new-email-rem">Email</label>
+                    <input type="checkbox" data-mini="true" name="new-sms-rem" id="new-sms-rem">
+                    <label for="new-sms-rem">Text message</label>
+                    <input checked disabled type="checkbox" data-mini="true" name="new-push-rem" id="new-push-rem">
+                    <label for="new-push-rem">Push notification</label>
+                </fieldset>
+                <fieldset data-role="controlgroup">
+                    <br/>
+                    <a onclick="gotoScreen('#policy-page', false);" data-role="button" data-inline="true" data-mini="true">
+                        Privacy Policy &amp; Terms of Service
+                    </a>
+                </fieldset>
+                <br/>
+                <input type="submit" data-role="button" value="Create Your FREE Account">
+            </form>
+        </div>
+    </div>
+
+    <div data-role="page" id="edit-account-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>My Account</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <!-- Dynamic content -->
+        </div>
+        <script id="edit-account-template" type="text/template">
+            <form id="edit-account-form">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" data-mini="true" data-clear-btn="true" class="required" value="<%=user.firstName%>">
+    
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" data-mini="true" data-clear-btn="true" class="required" value="<%=user.lastName%>">
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" data-mini="true" data-clear-btn="true" class="required phone" value="<%=user.phone%>">
+
+                <label for="email">Email:</label>
+                <input type="hidden" id="old-email" value="<%=user.email%>" />
+                <input type="email" id="email" name="email" data-mini="true" disabled="disabled" class="required email" value="<%=user.email%>">
+
+                <label for="password1">Password:</label>
+                <input type="hidden" id="old-password" value="<%=user.password%>" />
+                <input type="password" id="password1" name="password1" data-mini="true" data-clear-btn="true" class="required password" value="<%=user.password%>">
+
+                <label for="password2">Confirm Password:</label>
+                <input type="password" id="password2" name="password2" data-mini="true" equalto="#password1" data-clear-btn="true" class="required" value="<%=user.password%>">
+
+                <label for="user-location" class="js-select-name">Set Default Location:</label>
+                <select id="user-location" data-native-menu="false"></select>
+
+
+                <fieldset data-role="controlgroup">
+                    <p>How would you like to be reminded about our daily specials, chef specials, coupons, events and etc.</p>
+                    <input checked disabled type="checkbox" data-mini="true" name="email-rem" id="email-rem" <% if (notifyEmail) { %> checked="checked" <% } %>>
+                    <label for="email-rem">Email</label>
+                    <input type="checkbox" data-mini="true" name="sms-rem" id="sms-rem" <% if (notifySms && notifySms.length > 0) { %> checked="checked" <% } %>>
+                    <label for="sms-rem">Text message</label>
+                    <input checked disabled type="checkbox" data-mini="true" name="push-rem" id="push-rem" <% if (notifyPush) { %> checked="checked" <% } %>>
+                    <label for="push-rem">Push notification</label>
+                </fieldset>
+                <br/>
+                <input type="submit" data-role="button" value="Update Account Info">
+            </form>
+        </script>
+    </div>
+
+    <div data-role="dialog" id="login-dialog" data-close-btn="none" class="fixed-posittion">
+        <div data-role="header">
+            <a href="#" onclick="sendOrderAutomatically = false; isNeedGotoWelcome = true; $('#login-dialog').dialog('close'); signupLocationId = null;" data-role="button" data-icon="delete" data-iconpos="notext"></a>
+            <h1>Log In</h1>
+        </div>
+        <div data-role="content">
+            <label class="error" id="loginerrors"></label>
+            <form id="login-form">
+                <input type="text" class="required email" id="login-email" name="login-email" placeholder="Email">
+                <input type="password" class="required" minlength="4" id="login-password" name="login-password" placeholder="Password">
+                <input type="submit" data-role="button" value="Log In">
+            </form>
+            <br/>
+            <p class="block">
+                <button onclick="logInCallback = undefined; openRegisterPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini">Sign Up for Your FREE Account</button>
+            </p>
+        </div>
+    </div>
+
+    <div data-role="page" id="location-page">
+        <script id="location-page-suheader-template" type="text/x-handlebars-template">
+            <a <% if(goFromPhones) { %> data-rel="back" <% } else { %> onclick="gotoRestaurantLocationsView(null, null, true);" <% } %> class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+            <span>Location View</span>
+        </script>
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div id="location-view-subheader"><!-- Dynamic content --></div>
+        </div>
+        <div data-role="content" class="adaptive"><!-- Dynamic content --></div>
+        
+        <script id="location-template" type="text/x-handlebars-template">
+            <% if (default_location != id) { %>
+                <% if (features.order.by_app) { %>
+                    <a href="#" onclick="setDefaultLocation(<%=id%>)" data-role="button" data-icon="check">Set this Location as Default</a>
+                <% } %>
+            <% } %>
+            
+            <% if(features.gift_card.by_email) { %>
+                <a href="#" onclick="gotoGiftCards();" data-role="button" data-icon="arrow-r" data-inline="true">Send gift card</a>            
+            <% } %>
+
+            <ul data-role="listview" data-inset="true" class="extended-list">
+                <li data-role="list-divider">
+                    <img src="img/icons/location.png"/>
+                    <h2><%=info.name%></h2>
+                </li>
+                <% if (default_location) { %>
+                    <% if (default_location == id) { %>
+                        <li data-role="list-divider" data-theme="a">
+                            <img src="img/icons/current-location.png"/>
+                            <h2>This Location is Default</h2>
+                        </li>
+                    <% } else { %>
+                        <% if (!features.order.by_app) { %>
+                            <li>
+                                <img src="img/icons/nonavailable-location.png"/>
+                                <h2>Not Available to Order by App</h2>
+                            </li>
+                        <% } %>
+                    <% } %>                
+                <% } %>     
+                <li>
+                    <img src="img/icons/address.png"/>
+                    <b><i>Address:</i> <%=address.address%>, <%=address.city%>, <%=address.state%>, <%=address.zip_code%></b>
+                </li>
+                <% if (info.contact_first_name) { %>
+                    <li>
+                        <img src="img/icons/contacts.png"/>
+                        <h2><i>Contact person:</i>
+                        <%=info.contact_first_name%> <%=info.contact_last_name%></h2>
+                    </li>
+                <% } %>
+                <% if (info.email) { %>
+                    <li>
+                        <img src="img/icons/email.png"/>
+                        <a href="mailto:<%=info.email%>" data-icon="email"><i>Email:</i> <%=info.email%></a>
+                    </li>
+                <% } %>
+                <% if (info.phone) { %>
+                    <li>
+                        <img src="img/icons/order-phone.png"/>
+                        <a href="tel:<%=info.phone%>" data-icon="phone"><i>Phone:</i> <%=info.phone%></a>
+                    </li>
+                <% } %>
+                <% if (info.orders_phone) { %>
+                    <li>
+                        <img src="img/icons/order-phone.png"/>
+                        <a href="tel:<%=info.orders_phone%>" data-icon="phone"><i>Order by Phone:</i> <%=info.orders_phone%></a>
+                    </li>
+                <% } %>
+                <% if (hours.opening) { %>
+                    <li>
+                        <img src="img/icons/hours.png"/>
+                        <h2><i>Hours Of Operation:</i><br/>
+                        <%=hours.opening%></h2>
+                    </li>
+                <% } %>
+                <% if (info.longitude) { %>
+                    <li>
+                        <img src="img/icons/map.png"/>
+                        <h2>Position:</h2>
+                        <input type="hidden" id="latitude" value="<%=info.latitude%>" />
+                        <input type="hidden" id="longitude" value="<%=info.longitude%>" />
+                        <div id="map_canvas" style="width: 100%; min-width: 250px; min-height: 250px">
+                        </div><p>
+                            Longitude: <%=info.longitude%>, Latitude: <%=info.latitude%>
+                        </p>
+                        <span><a data-role="button" data-inline="true" class="action-bar" onclick="locationsGeolocation.buildDirection();">Get direction</a></span>                        
+                    </li>
+                <% } %>
+            </ul>
+        </script>
+        <div data-role="footer"></div>
+    </div>
+
+
+    <div data-role="page" id="locations-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a onclick="gotoScreen('#home-page', true);" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Our Locations</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <ul data-role="listview" id="selected-location-list" data-inset="true">
+                <li data-role="list-divider" class="js-static">
+                    <h2>
+                        <img src="img/icons/current-location.png" />
+                        Your currently selected location
+                    </h2>
+                </li>
+            </ul>
+
+            <ul data-role="listview" id="available-location-list" data-inset="true">
+                <li data-role="list-divider" class="js-static">
+                    <h2>
+                        <img src="img/icons/available-location.png" />
+                        Select another to order online
+                    </h2>
+                </li>
+            </ul>
+
+            <ul data-role="listview" id="nonavailable-location-list" data-inset="true">
+                <li data-role="list-divider" class="js-static">
+                    <h2 style="white-space: normal;">
+                        <img src="img/icons/nonavailable-location.png" />
+                        Call any of these other locations to order <small>(In app ordering is not enabled for these locations)</small>
+                    </h2>
+                </li>
+            </ul>
+            
+            <ul data-role="listview" id="order-by-phone-location-list" data-inset="true">
+                <li data-role="list-divider" class="js-static">
+                    <h2 style="white-space: normal;">
+                        <img src="img/icons/phone.png" />
+                        Locations with ordering via phone
+                    </h2>
+                </li>
+            </ul>
+            <br/>
+        </div>
+        <script id="location-view-item" type="text/template">
+            <li <% if (default_location && default_location == location.id) { %> data-theme="a" <% } %>>
+                <a href="#" onclick="gotoLocationView(<%=location.id%>, <%=goFromPhones%>)" data-icon="arrow-r" style="padding-left: 32px;">
+                    <h2>
+                        <%=location.info.name%>
+                    </h2>
+                    <p>
+                        <% if (location.features.order.by_app) { %> <img src="img/icons/order.png"><% } %>
+                        <% if (location.info.phone) { %><img src="img/icons/order-phone.png"><% } %>
+                        <% if (location.address.address) { %><img src="img/icons/address.png"><% } %>
+                        <% if (location.info.email) { %><img src="img/icons/email.png"><% } %>
+                        <% if (location.hours.opening) { %><img src="img/icons/hours.png"><% } %>
+                        <% if (location.info.longitude) { %><img src="img/icons/map.png"><% } %>
+                        <% if (location.features.gift_card.by_email) { %><img src="img/icons/gift.png"><% } %>
+                    </p>
+                    <p class="long-text">
+                        <i>Address:</i> 
+                        <%=location.address.address%>, <%=location.address.city%>, <%=location.address.state%>, <%=location.address.zip_code%>
+                    </p>
+                    <% if (location.info.email) { %>
+                        <p>
+                            <i>Email:</i>
+                            <%=location.info.email%>
+                        </p>
+                    <% } %>
+                    <% if (location.info.phone) { %>
+                        <p>
+                            <i>Phone:</i>
+                            <%=location.info.phone%>
+                        </p>
+                    <% } %>
+                </a>
+            </li>
+        </script>
+        <div data-role="footer"></div>
+    </div>
+
+    <div data-role="page" id="gift-card-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Send Gift Card</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive"><!-- Dynamic content --></div>
+        <script id="gift-cards-template" type="text/template">
+            <% if(locations.length > 0) { %>
+                <form id="gift-card-form" class="block">
+                    <div data-role="fieldcontain">
+                        <span>Select Location:</span><br/>
+                        <select id="user-location-select" data-native-menu="false">
+                            <% _.each(locations, function(location) { %>
+                                <option value="<%=location.id%>" <% if(location.location_id && location.id == location.location_id) { %>selected="selected"<% } %>>
+                                    <%=location.info.name%> - <%=location.address.address%>, <%=location.address.city%>
+                                </option>
+                            <% }); %>
+                        </select>
+                    </div>
+        
+                    <h3>Recipient Information</h3>
+                    <input type="text" class="required" id="rec-first-name" name="rec-first-name" placeholder="First Name">
+                    <input type="text" class="required" id="rec-last-name" name="rec-last-name" placeholder="Last Name">
+                    <input type="text" class="required" id="rec-address" name="rec-address" placeholder="Address">
+                    <input type="text" class="required" id="rec-city" name="rec-city" placeholder="City">
+                    <input type="text" class="required" id="rec-state" name="rec-state" placeholder="State">
+                    <input type="text" class="required" id="rec-zip" name="rec-zip" placeholder="Zip">
+                    <input type="text" class="required" id="rec-reason" name="rec-reason" placeholder="Reason">
+
+
+                    <h3>Sender Information</h3>
+                    <input type="text" class="required" id="send-first-name" name="send-first-name" placeholder="First Name">
+                    <input type="text" class="required" id="send-last-name" name="send-last-name" placeholder="Last Name">
+                    <input type="text" class="required card" id="send-card-number" name="send-card-number" placeholder="Credit Card Number">
+                    <label for="credit-card-expiration-month">Expiration Date</label>
+                    <div class="card-expiration-container"></div>
+
+                    <select id="gift-amount" name="gift-amount" data-mini="true" data-native-menu="false" data-placeholder="false" class="required">
+                        <option value="Undefined" disabled="disabled" selected="selected">Select the Amount of Gift Card</option>
+                        <option value="$25">$25</option>
+                        <option value="$50">$50</option>
+                        <option value="$75">$75</option>
+                        <option value="$100">$100</option>
+                        <option value="$150">$150</option>
+                        <option value="$200">$200</option>
+                        <option value="$300">$300</option>
+                        <option value="$400">$400</option>
+                        <option value="$500">$500</option>
+                    </select>
+                    <br/>
+                    <input type="submit" data-role="button" value="Send this Gift Card">
+                </form>
+            <% } else { %>
+                <p class="block">No locations for sending gift cards</p>
+            <% } %>
+        </script>
+    </div>
+
+
+    <div data-role="page" id="policy-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png" onclick="doNotShowItemWhenGoingToMenu(); gotoScreen('#home-page', true);" />
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span><small>Privacy Policy and Terms of Service</small></span>
+            </div>
+        </div>
+        <div data-role="content" class="text-page adaptive">
+            <h3>Privacy Policy</h3>
+            <strong>Introduction.</strong>
+            <p>We take your right to privacy seriously and want you to feel comfortable using our mobile app and web site(s). This Privacy Policy deals with personally identifiable information (referred to as "Data" below) that may be collected by us on our site. This Policy does not apply to other entities that we do not own or control or persons that are not our employees, agents or within our control. Please take time to read our Terms of Use.</p>
+            <strong>1. Collection of Data.</strong>
+            <p>Our registration process requires only the information that we need in order to provide our services to you. Providing us with any other information is at your option. Please take note that your email address, or other submissions that you make on this site may contain your real name or other personally identifiable information and, as a result, may appear on this site. Like many web sites and mobile apps, we may also automatically receive general information that is contained in our server log files such as your IP address and cookie information. Information about how advertising may be served on this site (if at all) is set forth below.</p>
+            <strong>2. Use of Data.</strong>
+            <p>We may use Data to customize and improve your user experience on this site. We will make efforts so that your Data will not be provided to third parties unless (i) provided for otherwise in this Privacy Policy; (ii) we obtain your consent, such as when you choose to opt-in or opt-out to the sharing of Data; (iii) a service provided on our site requires the interaction with or is provided by a third party, by way of example an Application Service Provider; (iv) pursuant to legal process or law enforcement; (v) we find that your use of this site violates our this Policy, Terms of Service, other usage guidelines or as deemed reasonably necessary by us to protect our legal rights and/or property; (vi) or (vi) this site is purchased by a third party whereby that third party will be able to use the Data in the same manner as we can as set forth in this Policy. In the event you choose to use links that appear on our site to visit other web sites, you are advised to read the privacy policies that appear on those sites.</p>
+            <strong>3. Cookies.</strong>
+            <p>Like many web sites, we set and use cookies to enhance your user experience, such as retaining your personal settings. Advertisements may appear on our web site and, if so, may set and access cookies on your computer and is subject to the privacy policy of those parties providing the advertisement. However, the companies serving the advertising do not have access to our cookies. These companies usually use non-personally identifiable or anonymous codes to obtain information about your visits to our site.</p>
+            <strong>4. Children.</strong>
+            <p>We do not allow persons who are ages thirteen or younger to become members of this site.</p>
+            <strong>5. Editing or Deleting Your Account Information.</strong>
+            <p>We provide you with the ability to edit the information in your user account information that you provided to us in registration by using your personal page configuration area. You may request deletion of your user account by contacting our webmaster. Content or other data that you may have provided to us and that is not contained within your user account, such as posts that may appear within our forums, may continue to remain on our site at our discretion even though your user account is deleted. Please see our Terms of Use for more information.</p>
+            <strong>6. Changes to this Privacy Policy.</strong>
+            <p>We may make changes to this Policy from time to time. We will notify you of substantial changes to this Policy either by posting a prominent announcement on our site and/or by sending a message to the email address you have provided to us that is contained within your user settings.</p>
+            <strong>7. NO GUARANTEES.</strong>
+            <p>While this Privacy Policy states our standards for maintenance of Data and we will make efforts to meet them, we are not in a position to guarantee these standards. There may be factors beyond our control that may result in disclosure of data. As a consequence, we disclaim any warranties or representations relating to maintenance or nondisclosure of Data.</p>
+            <strong>8. Contact Information.</strong>
+            <p>If you have any questions about this Policy or our web site, please feel free to contact us at the below email address:</p>
+            <p><strong>customersupport@myrestaurantmobile.net</strong></p>
+
+            <h3>Terms of Service (“Service Agreement”)</h3>
+            <p>This is a mobile app or website that MyRestaurantMobile has created to enable our client Restaurant to better serve its customers. By using this mobile app or website (“Service”) you agree to the following terms and conditions.</p>
+            <p><strong>(1)</strong> You acknowledge that you are 13 years of age or older and if under 18 years old have your parents’ or guardians’ permission to use Service and place orders.</p>
+            <p><strong>(2)</strong> You are solely responsible for making sure that you do not provide your password information to anyone else.</p>
+            <p><strong>(3)</strong> You give Service permission to send emails, text messages and push notifications to information of specials, coupons and other offers. You can control how you receive your offers from us, but Push Notifications are always on. If you not wish to receive Push Notifications you may delete your our app.</p>
+            <p><strong>(4)</strong> You will not enter false, fraudulent or fake information about yourself, your address, your payment information, your food order, etc. You understand that doing so can lead to real expenses in food preparation, delivery and other costs. You accept that you shall are liable for these expenses for any such actions or activity as well as the costs associated with collecting this money from you, including legal costs, if any.</p>
+            <p><strong>(5)</strong> You shall use the Social Media (e.g. Facebook, Twitter, email, SMS, etc.) features enable by Service responsibly and recognize that using social media is public forum and that misusing social media, or misrepresenting in social can be damaging to the injured party. Therefore, you shall not make disparaging remarks about Service. If for any reason you find Service is not to your liking then simply delete it from your phone and cease using it. But you do acknowledge that if Service has been injured by you then Service shall be entitled to and its sole discretion shall pursue all possible rights and remedies to defend itself, its reputation and seek appropriate financial damages from you.</p>
+            <p><strong>(6)</strong> Service may only be used by real customers. You may not use or reuse Service to gather data, copy data or any other purpose except to those pertaining to being end customers of the Restaurant that we serve and for whom this mobile app was developed.</p>
+            <p><strong>(7)</strong> This Service Agreement may by changed, modified, updated at any time and you shall be automatically bound by such changes.</p>
+            <br/>
+        </div>
+    </div>
+
+    <div data-role="page" id="photo-wall-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Photo Wall</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive">
+            <script id="photos-template" type="text/template">                
+                <% _.each(photos, function(photo) { %>
+                    <div><img u="image" src="<%=photo.url%>" alt="<%=photo.description%>" /></div>
+                <% }); %>
+            </script>
+            <div id="photos-slider" style="position: relative; top: -10px; left: -5px; right: -5px; width: 320px; height: 240px;">
+                <div u="slides" class="slider" style="cursor: pointer; position: absolute; overflow: hidden; width: 320px; height: 240px;">
+                </div>
+
+                <span u="arrowleft" class="arrow-left" style="display: none"></span>
+                <span u="arrowright" class="arrow-right" style="display: none"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div data-role="page" id="admin-list-orders-page" class="big-screen">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a href="#" onclick="gotoScreen('#home-page', true);" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>View Orders</span>
+                <a href="#" onclick="admin.refreshOrderList();" data-role="button" class="ui-btn">Refresh</a>
+            </div>
+        </div>
+        <div data-role="content"><!-- Dynamic content --></div>
+        <script id="admin-order-list-template" type="text/template">
+            <p class="block">Select Orders to View</p>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <select name="admin-orders-period" data-mini="true" id="admin-orders-period" data-native-menu="false" onchange="admin.sortConditionChanged();">
+                        <option value="all" <% if(selectedPeriod == 'all') { %>selected<% } %>>ALL PERIODS</option>
+                        <option value="today" <% if(selectedPeriod == 'today') { %>selected<% } %>>RECEIVED TODAY</option>
+                        <option value="yesterday" <% if(selectedPeriod == 'yesterday') { %>selected<% } %>>RECEIVED YESTERDAY</option>
+                        <option value="this_week" <% if(selectedPeriod == 'this_week') { %>selected<% } %>>RECEIVED THIS WEEK</option>
+                        <option value="this_month" <% if(selectedPeriod == 'this_month') { %>selected<% } %>>RECEIVED THIS MONTH</option>
+                        <option value="this_year" <% if(selectedPeriod == 'this_year') { %>selected<% } %>>RECEIVED THIS YEAR</option>
+                    </select>
+                </div>
+                <div class="ui-block-b">
+                    <select name="admin-orders-status" data-mini="true" id="admin-orders-status" data-native-menu="false" onchange="admin.sortConditionChanged();">
+                        <option value="ALL_STATUSES" <% if(selectedStatus == 'ALL_STATUSES') { %>selected<% } %>>ALL STATUSES</option>
+                        <option value="SUBMITTED" <% if(selectedStatus == 'SUBMITTED') { %>selected<% } %>>SUBMITTED</option>
+                        <option value="BEING_PREPARED" <% if(selectedStatus == 'BEING_PREPARED') { %>selected<% } %>>BEING PREPARED</option>
+                        <option value="READY" <% if(selectedStatus == 'READY') { %>selected<% } %>>READY</option>
+                        <option value="CANCELED_BY_RESTAURANT" <% if(selectedStatus == 'CANCELED_BY_RESTAURANT') { %>selected<% } %>>REJECTED</option>
+                    </select>
+                </div>
+            </div>
+            <br/>
+            <% if(orders.length > 0) { %>
+                <ul data-role="listview" data-inset="true" class="centered-listview-header big-arrow">
+                    <li data-role="list-divider">Orders auto-refreshed every 30 sec</li>
+                    <% _.each(orders, function(item) { %>
+                        <li>
+                            <a href="#" onclick="loadAdminViewOrder(<%=item.id%><% if(item.source_app) { %>, '<%=item.source_app%>' <% } %>);" <% if( item.status == 'SUBMITTED' && ($('#admin-orders-status option:selected').val() == 'ALL_STATUSES' || $('#admin-orders-status option:selected').val() == undefined)) { %>class="yellow-background"<% } %>>
+                                <div class="custom-table block order-table">
+                                    <span>Status: <b><%=admin.normaliseStatus(item.status)%></b></span></br>
+                                    <div>
+                                        <span>Order <b>#<%=item.id%></b>
+                                        <% if(item.source_app && item.source_app == 'meal_usa') { %>
+                                            from <b>Website</b>
+                                        <% } else { %>
+                                            from <b>Mobile App</b>                                    
+                                        <% } %>
+                                        </span>
+                                        <span>When needed: <b><%=item.time_requested%></b></span>
+                                        <span>Submitted At: <b><%=item.submitted_at%></b></span>
+                                    </div>
+                                    <div>
+                                        <span>Payment: <b><%=admin.normalisePaymentType(item.payment_type)%></b></span>
+                                        <span>Delivery: <b><%=item.order_acceptance%></b></span>
+                                    </div>
+                                </div>
+                                <br/>
+                                <span class="ui-li-count currency"><%=parseFloat(item.total_cost).toFixed(2)%></span>
+                            </a>
+                        </li>
+                    <% }); %>
+                </ul>
+                <div id="pagination-container" class="block">
+                    <% if(total_pages > 1) { %>
+                        <p><span id="current-page"><%=current_page%></span> of <%=total_pages%></p>
+                        <a href="#" onclick="admin.previousPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-arrow-l <% if(current_page == 1) { %> ui-disabled <% } %>">Previous</a>
+                        <a href="#" onclick="admin.nextPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-right ui-icon-arrow-r <% if(current_page == total_pages) { %> ui-disabled <% } %>">Next</a>
+                    <% } %>
+                </div>
+            <% } else { %>
+                <p class="block">No orders</p>
+            <% } %>
+            <br/>            
+        </script>
+        <div data-role="footer"></div>
+    </div>    
+
+    <div data-role="page" id="admin-view-order-page" class="big-screen">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a href="#" onclick="gotoAdminOrderList(true);" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>View Order Details</span>
+            </div>
+        </div>
+        <div data-role="content">
+            <!-- Dynamic content -->
+        </div>
+        <div data-role="footer"></div>
+    </div>
+
+    <script id="admin-view-order-template" type="text/template">
+        <ul data-role="listview" data-inset="true">            
+            <li>
+                <div class="custom-table block view-order-table">
+                    <span>Order <b>#<%=order.id%></b>
+                    <% if(typeof source_app != 'undefined' && source_app == 'meal_usa') { %>
+                        from <b>Website</b>
+                    <% } else { %>
+                        from <b>Mobile App</b>                                    
+                    <% } %></span></br>                    
+                    <span>Status: <b><%=admin.normaliseStatus(order.status)%></b></span></br> 
+                    <div>
+                        <span>Location: <b><%=order.restaurant_location.name%></b></span>
+                        <span>When Needed: <b><%=order.time_requested%></b></span>
+                        <span>Order Type: <b><%=order.order_acceptance%></b></span>
+                        <% if(order.delivery) { %>
+                            <span style="white-space: normal;">Address: <b>
+                                <%=order.delivery.address%> <%=order.delivery.address_2%> <%=order.delivery.city%> <%=order.delivery.state%> <%=order.delivery.zip_code%>
+                            </b></span>
+                        <% } %>
+                    </div>
+                    <div>
+                        <span>Order Name: <b><%=unescape(order.name)%></b></span>
+                        <span>Email: <b><%=order.user.email%></b></span>
+                        <span>Customer: <b><%=order.user.first_name%> <%=order.user.last_name%></b></span>
+                        <span>Phone: <b><%=order.user.phone%></b></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <table class="simple">
+            <tbody>
+                <tr>
+                    <td>Category</td>
+                    <td>Item</td>
+                    <td>Quantity</td>
+                    <td>Total</td>
+                </tr>
+                <% _.each(order.order_items, function(item) { %>
+                    <tr>
+                        <td><%=item.category%></td>
+                        <td style="word-break: break-all;">
+                            <%=item.menu_item%>: <span class="currency"><%=item.cost%></span>
+                            <% if (item.customization_items && item.customization_items.length > 0) { %>
+                                <br/><i>Customizations:</i>
+                                <% _.each(item.customization_items, function(customizationItem) { %> 
+                                    <br/><%=customizationItem.name%>: <span class="currency"><%=customizationItem.cost%></span>
+                                <% }); %>
+                            <% } %>
+                            <br/><u><i>Item total:</i> <span class="currency"><%=item.total_cost / item.quantity%></span></u>
+                            </br>
+                            <% if (item.special_instructions) { %>
+                                <br/><i>Instructions:</i><br/><%=item.special_instructions%>
+                            <% } %>
+                            <% if (item.comment) { %>
+                                <br/><i>Comment:</i><br/><%=item.comment%>                            
+                            <% } %>
+                        </td>
+                        <td>
+                            <%=item.quantity%></br>
+                        </td>
+                        <td>
+                            <span class="currency"><%=item.total_cost%></span>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <ul data-role="listview" data-inset="true">
+            <li>
+                <div class="custom-table view-order-table">
+                    <div>
+                        <span>Subtotal: <b class='currency'><%=order.cost%></b></span>
+                        <span>Tax: <b class='currency'><%=order.tax%></b></span>
+                        <span>Tip: <b class='currency'><%=order.tips%></b> <b>(<% if(order.tips_percent) { %><%=order.tips_percent%><% } else { %>0<% } %>%)</b></span>
+                        <span>Total: <b class='currency'><%=order.total_cost%></b></span>
+                    </div>
+                    <div>
+                        <span>Payment Type:</br><b><%=admin.normalisePaymentType(order.payment_type)%></b></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="block">
+            <a href="#" onclick="adminChangeStatus(<%=order.id%>, 'BEING_PREPARED'<% if(typeof source_app != 'undefined' && source_app) { %>, '<%=source_app%>'<% } %>);" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-check <% if(order.status == 'BEING_PREPARED') { %> ui-disabled <% } %>">Being Prepared</a>
+            <a href="#" onclick="adminChangeStatus(<%=order.id%>, 'READY'<% if(typeof source_app != 'undefined' && source_app) { %>, '<%=source_app%>'<% } %>);" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-shop <% if(order.status == 'READY') { %> ui-disabled <% } %>">Order Ready</a>
+            <% if(order.payment_type != 'CREDIT_CARD') { %>
+                <a href="#" onclick="adminChangeStatus(<%=order.id%>, 'CANCELED_BY_RESTAURANT'<% if(typeof source_app != 'undefined' && source_app) { %>, '<%=source_app%>'<% } %>);" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-delete <% if(order.status == 'CANCELED_BY_RESTAURANT') { %> ui-disabled <% } %>">Reject Order</a>
+            <% } %>
+        </div>
+        <br/>
+    </script>
+    
+    <div data-role="page" id="total-order-info-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Order Details</span>
+            </div>
+        </div>
+        <div data-role="content" class="adaptive"> <!-- Dynamic content --> </div>
+        <script id="order-info-template" type="text/template">
+            <% if(coupons && coupons.length > 0) { %>
+                <div data-role="fieldcontain" class="block">
+                    <span>Select coupons:</span><br/>
+                    <select id="coupons-select" data-native-menu="false">
+                        <option value="default" selected class="js-static">Without Coupons</option>
+                        <% _.each(coupons, function(coupon) { %>
+                            <option value="<%=coupon.id%>" <% if(coupon.coupon_type == 'BUNDLE_OFFER' && $('#payment-type :radio:checked').val() == 'CREDIT_CARD') { %> disabled <% } %>>
+                                <% if(coupon.coupon_type == 'BUNDLE_OFFER' && $('#payment-type :radio:checked').val() == 'CREDIT_CARD') { %> 
+                                    <b>Not applicable with credit card</b>
+                                <% } %>
+                                <%= coupon.name || "Coupon" %>
+                                <% if (coupon.description) { %>
+                                    - <%= coupon.description %>
+                                <% } %>
+                                <% if (coupon.restrictions) { %>
+                                    - <%= coupon.restrictions %>
+                                <% } %>
+                            </option>                
+                        <% }); %>
+                    </select>
+                </div>
+            <% } %>
+            <ul data-role="listview" data-inset="true" class="details-list">
+                <li>
+                    Order #<%=order.id%>:<span class="ui-li-count"><%=unescape(order.name)%></span>
+                </li>
+                <% _.each(order.order_items, function(item) { %>
+                    <li class="orderItem">
+                        <% if (item.imageUrl) { %>
+                            <img src="<%=item.imageUrl%>"/>
+                        <% } %>
+                        <h2><%=item.name%></h2>
+                        <small>Quantity: <%=item.quantity%></small>
+                        <% if (item.total_cost && item.total_cost > 0) { %>
+                            <span class="ui-li-count currency"><%=item.total_cost%></span>
+                        <% } %>
+                    </li>
+                <% }); %>
+                <li data-role="list-divider">Price details</li>
+                <li>Subtotal<span class='currency ui-li-count'><%=order.cost%></span></li>
+                <% if (order.delivery_charge) { %>
+                    <li>Delivery charge<span class='currency ui-li-count'><%=order.delivery_charge%></span></li>
+                <% } %>
+                <li>Tax<span class='currency ui-li-count'><%=order.tax%></span></li>
+                <li>Tips <% if(order.tips_percent != null) { %><%=order.tips_percent%><% } else { %>0<% } %>%<span class='currency ui-li-count'><%=order.tips %></span></li>
+                <li>Total<span class='currency ui-li-count'><%=order.total_cost%></span></li>
+
+                <li data-role="list-divider">Delivery details</li>
+                <li style="white-space: initial;">Location: <%=locationInfo%></li>
+                <li>Delivery<span class='ui-li-count'><%=$('#delivery-type :radio:checked').val()%></span></li>
+                <li>When need it<span class='ui-li-count'><%=$('#ready-time-select option:selected').val()%></span></li>
+                <li>Payment type<span class='ui-li-count'><%=$('#payment-type :radio:checked').val().replace('_', ' ')%></span></li>
+            </ul>            
+            <a href="#" onclick="order.submit();" data-role="button" data-icon="check">Submit order</a>        
+        </script>
+        <div data-role="footer"></div>
+    </div>
+    
+    <div data-role="page" id="menu-page">
+        <div data-role="header" data-position="fixed">
+            <img src="img/restaurant/header.png"/>
+            <div>
+                <a onclick="menuViewer.goBack();" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+                <span>Our Menu</span>
+            </div>
+        </div>
+
+        <div data-role="content" class="adaptive" style="padding-bottom: 2.2em;"><!-- Dynamic content --></div>
+        <div data-role="footer"></div>
+    </div>
+
+   <script id="nav-buttons-template" type="text/template">        
+        <nav id="buttons-container-<%=id%>" class="large"> <!-- Dynamic content --> </nav>        
+   </script>
+
+    <script id="button-large-template" type="text/template">        
+        <button onclick="menuViewer.displayCategory('<%=categoryId%>')" class="ui-btn ui-btn-icon-left">
+            <span><%=categoryName%></span>
+        </button>
+    </script>
+    
+    <script id="expanded-category-container-template" type="text/template">
+        <div id="<%=categoryId%>">
+        </div>    
+    </script>
+
+    <script id="expanded-menu-category-template" type="text/template">
+        <% if (category.menu_items && category.menu_items.length > 0) { %>
+            <ul data-role="listview" data-inset="true" data-divider-theme="a" class="details-list">
+                <li class="ui-li-static" data-role="list-divider">
+                    <% if (category.image_url) { %>
+                        <img src="<%=category.image_url%>"/>
+                    <% } %>
+                    <h2><%=category.name%></h2>
+                    <p><%=category.description%></p>
+                    <% if (category.restriction) { %>
+                        <p><b>Restrictions: <%=category.restriction%></b></p>
+                    <% } %>
+                </li>
+                <% _.each(category.menu_items, function(item) { %>
+                    <li class="countable">
+                        <% if(!is_view_only) { %>
+                            <% if(!category.view_only) { %>
+                                <a id="<%=item.id%>" onclick="processAddMenuItemToOrder(<%=item.id%>);" class="countable">
+                            <% } %>
+                        <% } %>
+                        <% if (item.image_url) { %>
+                            <img src="<%=item.image_url%>"/>
+                        <% } %>
+                        <h3><%=item.name%></h3>
+                        <p><%=item.description%></p>
+                        <% if (item.cost && item.cost > 0) { %>
+                            <span class="ui-li-count currency ui-mini"><%=item.cost%></span>
+                        <% } %>
+                        <% if(!is_view_only) { %>
+                            <% if(!category.view_only) { %>
+                                </a>
+                            <% } %>
+                        <% } %>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else if(category.subcategories.length > 0) { %>
+
+        <% } else { %>
+            <p class="block">No menu items</p>
+        <% } %>
+    </script>
+
+    <script id="no-categories-template" type="text/template">
+        <p class="block">No categories</p>
+    </script>
+    
+    <script id="footer-template" type="text/template">
+        <div data-role="navbar" id="footer">
+            <ul class="ui-body-c">
+                <li>
+                    <a href="#" onclick="gotoScreen('#home-page', true);" data-icon="custom-home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="menuViewer.displayWholeMenu(MAIN_MENU_QUERY);" data-icon="custom-menu">Menu</a>
+                </li>
+
+                <% if(!view_only) { %>
+                    <li id="checkout-footer-button">
+                        <a href="#" onclick="gotoViewOrderScreen();" data-icon="custom-checkout">Checkout</a>
+                    </li>
+                <% } %>
+            
+                <% if(specials_allowed) { %>
+                    <li id="specials-footer-button">
+                        <a href="#" onclick="menuViewer.displayWholeMenu(SPECIALS_MENU_QUERY);" data-icon="custom-specials">Specials</a>
+                    </li>
+                <% } %>
+                <li>
+                    <a href="#" onclick="callUs(false);" data-icon="custom-call">Call Us</a>
+                </li>
+            </ul>
+        </div>
+    </script>
+    
+    <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="libs/jquery.mobile.theming.js"></script>
+    <script type="text/javascript" src="libs/jquery.mobile-1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="libs/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="libs/jquery.currency.js"></script>
+    <script type="text/javascript" src="libs/jssor.slider.min.js"></script>
+    <script type="text/javascript" src="libs/jquery.tcycle.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=en"></script>
+    <script type="text/javascript" src="libs/underscore-1.6.0.min.js"></script>
+    <script type="text/javascript" src="libs/jquery.timer.js"></script>
+    <script type="text/javascript" src="cordova.js"></script> 
+
+    <!-- Start #js-section# -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/models.js"></script>
+    <script type="text/javascript" src="js/client.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/types.js"></script>
+    <!-- End #js-section# -->
+</body>
+</html>

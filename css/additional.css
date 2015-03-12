@@ -1,0 +1,299 @@
+#loader {
+    z-index: 9999999;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    opacity: .2;
+    margin-left: -23px;
+    margin-top: -23px;
+    display: none;
+}
+
+.action-bar {
+    float: right;
+    text-align: center;
+}
+
+/* only policy */
+.text-page {
+    text-align: justify;
+    font-size: 13px;
+}
+
+/* signup, account, login */
+.error {
+    text-align: center;
+    color: #F2242E;
+}
+
+/* home */
+.user-area {
+    text-align: right;
+    margin-bottom: 10px;
+}
+.user-area .ui-btn {
+    margin: 0 0 0 7px;
+}
+
+/* location dialog */
+.definition-list .ui-controlgroup-controls {
+  width: 100%;
+}
+.definition-list dl { 
+    margin: 0;
+}
+.definition-list dt,
+.definition-list dd {
+    font-size: 12px;
+    font-weight: normal;
+    display: inline;
+}
+.definition-list dt {
+    font-style: italic;
+    text-decoration: underline;
+    padding-right: .25em;
+}
+.definition-list dd:after { 
+    content:"\A"; 
+    white-space:pre;
+}
+/* coupon list */
+.custom-list span {
+    display: block;
+    white-space: normal;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+/* general */
+.block {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* coupon detail, menu category, admin view */
+.details-list .ui-li-static {
+    font-weight: normal;
+    white-space: normal;
+}
+.details-list li h2,
+.details-list li p {
+    white-space: normal;
+    word-wrap: normal;
+    padding-right: 0.8em;
+}
+.details-list li h3 {
+    padding-right: 0.5em;
+    white-space: pre-line;
+}
+
+/* admin view */
+.compact-list li {
+  padding: .3em 5px;
+  font-size: 14px;
+}
+.compact-list li + li {
+  border-top: none;
+}
+.compact-list li span {
+  font-weight: 600;
+  float: right;
+}
+
+.extended-list > .ui-li-has-thumb > img:first-child {
+  float: left;
+  top: 1em;
+  left: 1em;
+  z-index: 1;
+}
+.extended-list > .ui-li-static.ui-li-has-thumb,
+.extended-list > .ui-li-has-thumb > a.ui-btn {
+  white-space: normal;
+  padding-left: 2.5em;
+  min-height: 1em;
+}
+.extended-list > .ui-li-static.ui-li-has-thumb > h2 {
+  white-space: normal;
+  margin: 0;
+}
+.extended-list > .ui-li-divider > h2 {
+  white-space: normal;
+  padding-left: 1.5em;
+}
+
+/* simple table styles (admin view) */
+table.simple {
+    background: #fff;
+    border: 1px solid #b4b4b4;
+    padding: 0;
+    margin-top:10px;
+    width: 100%;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+     
+table.simple tr td {
+    border: 1px solid #b4b4b4;
+    border-top: none;
+    border-left: none;
+    padding: 7px;
+    background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+    background-image: linear-gradient(top, #fdfdfd, #eee);
+}
+         
+table.simple tr td:last-child {
+    border-right: none;
+}
+table.simple tr:last-child td {
+    border-bottom: none;
+}
+
+.arrow-left, .arrow-right, .arrow-leftdn, .arrow-rightdn {
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  background: url(../img/icons/slider-icons.png) no-repeat;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  top: 50%; 
+  margin-top: -20px;
+}
+.arrow-left, .arrow-leftdn { left: 8px; }
+.arrow-right, .arrow-rightdn { right: 8px; }
+
+.arrow-left        { background-position:  0     0; }
+.arrow-right       { background-position: -40px  0; }
+.arrow-left:hover  { background-position: -80px  0; }
+.arrow-right:hover { background-position: -120px 0; }
+.arrow-leftdn      { background-position: -160px 0; }
+.arrow-rightdn     { background-position: -200px 0; }
+
+.customization-item label {
+    text-align: center !important;
+}
+.customization-item label span {
+    position: static;
+}
+
+.custom-table > div {
+    float: left;
+    margin-right: 1px;
+    text-align: left;
+}
+.custom-table > div > span {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    overflow: hidden;
+    max-width: 15em;
+    text-overflow: ellipsis;
+}
+.custom-table > span {
+    line-height: 170%;
+}
+@media all and (min-width: 320px) {
+    .custom-table > div > span,
+    table.simple tr td,
+    .custom-table > span {
+        font-size: 14px;
+    }
+    
+    /*headers inside table*/
+    .view-order-table > span,
+    .order-table > span {
+        font-size: 19px;
+    }
+}
+@media all and (min-width: 480px) {
+    .custom-table > div > span,
+    table.simple tr td,
+    .custom-table > span,
+    /* total price for order in orders view*/
+    .big-screen span.ui-li-count.currency {
+        font-size: 20px;
+    }
+
+    /*back button*/
+    .big-screen .ui-header div > a:first-child {
+        margin: 2px;
+        width: 4em;
+        height: 3.5em;
+        left: 2em;
+    }
+    /*refresh button in admin-list-orders-page page*/
+    .big-screen .ui-header div > a:last-child {
+        right: 1.5em;
+    }
+
+    /*buttons in pagination container admin-list-orders-page page*/
+    .big-screen #pagination-container > a,
+    /*refresh button in admin-list-orders-page page*/
+    .big-screen .ui-header div > a:last-child,
+    /*3 buttons in admin-view-order-page page*/
+    .big-screen [data-role=content] > div > a.ui-btn {
+        font-size: 21px;
+    }
+    /*subheader*/
+    .big-screen .ui-header div > span {
+        font-size: 35px;
+        line-height: 1.8em;
+    }
+    /*for all text in page*/
+    .big-screen,
+    /*font for select box button*/
+    .big-screen .ui-select > a > span,
+    /*font for items in select box*/
+    .big-screen .ui-selectmenu-list > li > a,
+    /*listview header*/
+    .big-screen .centered-listview-header > [data-role=list-divider] {
+        font-size: 23px;
+    }
+
+    
+    /*select box button*/
+    .big-screen .ui-select > a > span,
+    /*items in select box*/
+    .big-screen .ui-selectmenu-list > li > a,
+    .big-screen [data-role=content] > div > a.ui-btn {
+        line-height: 2.2em;
+    }
+
+    /*headers inside table*/
+    .view-order-table > span,
+    .order-table > span {
+        font-size: 26px;
+    }
+    
+    .big-arrow > li > a:after {
+        width: 45px;
+    }
+
+    .order-table > div:last-child > span {
+        max-width: 13.8em;
+    }
+}
+.order-table > div { width: 20em; }
+.order-table > span {
+    width: 100%;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20em;
+}
+.view-order-table > div:first-of-type { width: 16em; }
+
+.view-order-table > div > span,
+.order-table > span {
+    line-height: 140%;
+}
+.view-order-table > div > span {
+    max-width: 18em;
+}
+
+.yellow-background {
+    background-color: #FFFF77!important;
+}
