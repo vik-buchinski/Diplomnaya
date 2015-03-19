@@ -99,11 +99,6 @@ var restaurant = {
         switch (group) {
             case "view_only":
                 if (parametrs.by_app != undefined) {
-                    if (parametrs.by_app) {
-                        $("#browse-menu-button > span").html("Browse Our Menu");
-                    } else {
-                        $("#browse-menu-button > span").html("Browse Our Menu<br/> &amp; Order by App");
-                    }
                     toggleVisibility("#manage-your-orders-button", !parametrs.by_app);
                     if (parametrs.by_app) {
                         toggleVisibility("#specials-button", !parametrs.by_app);

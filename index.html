@@ -34,9 +34,9 @@
 
             <div class="user-area">
             		<span id="label-login"></span>
-                <a id="btn-login" href="#login-dialog" data-rel="dialog" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini" data-transition="pop">Log In</a>
-                <button id="btn-signup" onclick="openRegisterPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini">Register</button>
-                <button id="btn-logout" onclick="LogOut();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini">Log Out</button>
+                <a id="btn-login" href="#login-dialog" data-rel="dialog" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini" data-transition="pop">Авторизация</a>
+                <button id="btn-signup" onclick="openRegisterPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini">Регистрация</button>
+                <button id="btn-logout" onclick="LogOut();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini">Выйти</button>
             </div>
             <nav class="large">
                 <button id="browse-menu-button" onclick="menuViewer.displayWholeMenu(MAIN_MENU_QUERY);" class="ui-btn ui-btn-icon-left ui-icon-browse-menu">
@@ -44,46 +44,46 @@
                 </button>
 
                 <button id="order-call-button" onclick="callToOrder();" class="ui-btn ui-btn-icon-left ui-icon-call-order">
-                    <span>Call Us &amp;<br/>Order by Phone</span>
+                    <span>Заказ по телефону</span>
                 </button>
                 
                 <button id="specials-button" onclick="menuViewer.displayWholeMenu(SPECIALS_MENU_QUERY);" class="ui-btn ui-btn-icon-left ui-icon-checkout-deals">
-                    <span>Check Out these<br/>Great Deals</span>
+                    <span>Специальные предложения</span>
                 </button>
 
                 <button id="coupons-button" onclick="coupons.gotoCouponsView();" class="ui-btn ui-btn-icon-left ui-icon-my-coupons">
-                    <span>My Coupons</span>
+                    <span>Мои купоны</span>
                 </button>
 
                 <button id="manage-your-orders-button" onclick="gotoScreen('#manage-your-order-page', false);" class="ui-btn ui-btn-icon-left ui-icon-manage-orders">
-                    <span>Manage Your Orders</span>
+                    <span>Мои заказы</span>
                 </button>
 
                 <button id="social-button" onclick="gotoScreen('#social-features-page', false);" class="ui-btn ui-btn-icon-left ui-icon-social-operations">
-                    <span>Get Social<br/>Share with Your Friends</span>
+                    <span>Поделись с друзьями</span>
                 </button>
 
                 <button id="reservations-button" onclick="callUs(true);" class="ui-btn ui-btn-icon-left ui-icon-make-reservation">
-                    <span>Make a<br/>Reservation</span>
+                    <span>Зарезервировать столик</span>
                 </button>
 
                 <button id="gift-card-button" onclick="gotoGiftCards();" class="ui-btn ui-btn-icon-left ui-icon-gift-card" style="display: none;">
-                    <span>Send Gift Cards</span>
+                    <span>Подарочные карты</span>
                 </button>
 
                 <button onclick="gotoRestaurantLocationsView();" class="ui-btn ui-btn-icon-left ui-icon-locations">
-                    <span>Restaurant Locations</span>
+                    <span>Локации ресторана</span>
                 </button>
                 
                 <button id="photowall-button" onclick="gotoScreen('#photo-wall-page', false);"  class="ui-btn ui-btn-icon-left ui-icon-our-photo">
-                    <span>Photo Wall</span>
+                    <span>Галлерея</span>
                 </button>
 
                 <button onclick="attemptAccountView();" class="ui-btn ui-btn-icon-left ui-icon-my-account narrow">
-                    <span>My Account</span>
+                    <span>Мой аккаунт</span>
                 </button>
                 <button id="btn-admin" onclick="gotoAdminOrderList();" class="ui-btn ui-btn-icon-left ui-icon-administration narrow hidden">
-                    <span>Administration</span>
+                    <span> Заказы</span>
                 </button>
             </nav>
         </div>
@@ -95,13 +95,13 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Get Social</span>
+                <span>Поделись с друзьями</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
             <nav class="large">
                 <a onclick="sendEmail();" data-role="button" data-icon="share-friends">
-                    <span>Share with<br/>Your Friend</span>
+                    <span>Через e-mail</span>
                 </a>
             </nav>
         </div>
@@ -113,19 +113,19 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Manage Your Orders</span>
+                <span>Мои заказы</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
             <nav class="large">
                 <a onclick="startNewOrderGotoMenu();" data-role="button" data-icon="new-order">
-                    <span>Start a New Order</span>
+                    <span>Начать новый заказ</span>
                 </a>
                 <a onclick="ordersList();" data-role="button" data-icon="fast-order">
-                    <span>Fast Reorder<br/>from Saved Orders</span>
+                    <span>Быстрый заказ<br/>из сохранённых заказов</span>
                 </a>
                 <a onclick="gotoViewOrderScreen();" data-role="button" data-icon="view-order">
-                    <span>View My<br/>Current Order</span>
+                    <span>Посмотреть мой<br/>текущий заказ</span>
                 </a>
             </nav>
         </div>
@@ -137,7 +137,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Add Item to Order</span>
+                <span>Добавить айтем в корзину</span>
             </div>
         </div>
         <div data-role="content" class="adaptive"><!-- Dynamic content --></div>
@@ -149,7 +149,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Edit Order Item</span>
+                <span>Редакрирование айтема</span>
             </div>
         </div>
 
@@ -179,7 +179,7 @@
         <ul data-role="listview" data-inset="true" class="details-list">
             <% if (order != null) { %>
                 <li style="padding-right: 120px;">
-                    <small style="white-space: normal;">Current Order: <b><%=unescape(order.name)%></b></small>
+                    <small style="white-space: normal;">Текущий заказ: <b><%=unescape(order.name)%></b></small>
                     <span class="ui-li-count"><%=order.order_items.length%> items</span>
                 </li>
             <% } %>
@@ -197,16 +197,16 @@
                 <% } %>
             </li>
             <% if (customization_categories_length > 0) { %>
-                <li data-role="list-divider">Select Your Options and Customization</li>
+                <li data-role="list-divider">Выберите дополнения к заказу</li>
                 <li style="padding: .5em; text-align: center;" id="customization-categories-container">                        
-                    <span><a data-role="button" data-inline="true" data-mini="true" class="js-static" onclick="addItemToOrderPage.buildCustimizationCategories(<%=menu_item.id%>, <%=menu_category_id%>);">Reset customizations</a></span>
+                    <span><a data-role="button" data-inline="true" data-mini="true" class="js-static" onclick="addItemToOrderPage.buildCustimizationCategories(<%=menu_item.id%>, <%=menu_category_id%>);">Сбросить дополнения</a></span>
                     <!-- Dynamic content -->
 				</li>
             <% } %>
 
             <li>
                 <div data-role="fieldcontain" class="compact">
-                    <label for="order-item-instructions" style="width: 100%; float: none;">Special Instructions</label>
+                    <label for="order-item-instructions" style="width: 100%; float: none;">Специальные инструкции</label>
                     <textarea data-mini="true" style="resize: none; width: 100%;" name="order-item-instructions" id="order-item-instructions"></textarea>
                 </div>
             </li>
@@ -214,25 +214,25 @@
             <li>
                 <div data-role="fieldcontain" class="compact">
                     <label for="count" style="margin: 0 20px 0; width: 60px; float: left;">
-                        Quantity
+                        Количество
                         <br/>
                         <input type="number" readonly="readonly" name="count" style="text-align: center; width: 50px;" data-mini="true" id="count" value="1" min="1" data-highlight="true" />
                     </label>
-                    <a style="margin-top: 2em;" data-theme="a" onclick="addItemToOrderPage.minus();" data-role="button" data-inline="true" data-mini="true" data-icon="minus">Less</a>
-                    <a style="margin-top: 2em;" data-theme="a" onclick="addItemToOrderPage.plus();" data-role="button" data-inline="true" data-mini="true" data-icon="plus">More</a>
+                    <a style="margin-top: 2em;" data-theme="a" onclick="addItemToOrderPage.minus();" data-role="button" data-inline="true" data-mini="true" data-icon="minus">Меньше</a>
+                    <a style="margin-top: 2em;" data-theme="a" onclick="addItemToOrderPage.plus();" data-role="button" data-inline="true" data-mini="true" data-icon="plus">Больше</a>
                 </div>
             </li>
 
             <li>
-                <h2>Total Item Cost <br/><small>with quantity and additions</small></h2>
+                <h2>Конечная цена <br/><small>включая количество и дополнения</small></h2>
                 <span class="ui-li-count currency" id="total-item-cost"></span>
             </li>
         </ul>
         <div class="block">
-            <a id="add-item-to-order" onclick="addItemToOrderPage.addItem();" data-role="button" data-icon="check">Add Item to Order</a>
-            <a id="save-order-item-changes" onclick="addItemToOrderPage.addItem(<%=orderItemId%>);" data-role="button" data-icon="check">Save Changes</a>
-            <a data-role="button" data-icon="delete" data-rel="back">Cancel</a>
-            <a id="delete-order-item" onclick="removeItemFromOrder(<%=orderItemId%>);" data-role="button" data-icon="minus">Delete Item</a>
+            <a id="add-item-to-order" onclick="addItemToOrderPage.addItem();" data-role="button" data-icon="check">Добавить айтем в корзину</a>
+            <a id="save-order-item-changes" onclick="addItemToOrderPage.addItem(<%=orderItemId%>);" data-role="button" data-icon="check">Сохранить изменения</a>
+            <a data-role="button" data-icon="delete" data-rel="back">Отмена</a>
+            <a id="delete-order-item" onclick="removeItemFromOrder(<%=orderItemId%>);" data-role="button" data-icon="minus">Удалить айтем</a>
         </div>
     </script>
 
@@ -241,14 +241,14 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" data-reverse="true" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Delivery Options</span>
+                <span>Опции доставки</span>
             </div>
         </div>
         <div data-role="content" class="adaptive block">
             <div data-role="fieldcontain" id="delivery-locations-container"><!-- Dynamic content --></div>
             
             <script id="delivery-locations-template" type="text/template">
-                <span>Set Order Location:</span><br/>
+                <span>Выберите локацию заказа:</span><br/>
                 <select id="submit-order-location" data-native-menu="false" onchange="updateOrderLocation()">
                     <% _.each(locations, function(location) { %>
                         <option value="<%=location.id%>" <% if(location.location_id && location.id == location.location_id) { %>selected="selected"<% } %>>
@@ -261,27 +261,27 @@
             
             <script id="delivery-type-template" type="text/template">
                 <fieldset data-role="controlgroup" data-type="horizontal" id="delivery-type">
-                    <legend>Choose Delivery Type:</legend>
+                    <legend>Выберите тип доставки:</legend>
                     <% if(isPickUpAccepted) { %>
                         <input type="radio" onclick="switchFromDelivery();" name="delivery-type-choice" id="pickup-choise" value="PICKUP"/>
                         <label for="pickup-choise">
-                            <span class="ui-radio-icon ui-icon-pickup"></span> Pick Up
+                            <span class="ui-radio-icon ui-icon-pickup"></span> Забрать
                         </label>
                     <% } %>
 
                     <% if(isDeliveryAccepted) { %>
                         <input type="radio" onclick="switchToDelivery();" name="delivery-type-choice" id="delivery-choise" value="DELIVERY"/>
                         <label for="delivery-choise">
-                            Delivery <span class="ui-radio-icon ui-icon-delivery"></span>
+                            Доставить <span class="ui-radio-icon ui-icon-delivery"></span>
                         </label>
                     <% } %>
                 </fieldset>
             </script>
 
             <form id="delivery-form" class="hidden" onsubmit="updateDeliveryAddress()">
-                <input data-clear-btn="true" type="text" class="required" minlength="10" name="delivery-address" id="delivery-address" placeholder="Address"/>
-                <input data-clear-btn="true" type="text" name="delivery-suite" id="delivery-suite" placeholder="Suite, Apt, etc."/>
-                <input data-clear-btn="true" type="text" name="delivery-city" id="delivery-city" placeholder="City"/>
+                <input data-clear-btn="true" type="text" class="required" minlength="10" name="delivery-address" id="delivery-address" placeholder="Адрес"/>
+                <input data-clear-btn="true" type="text" name="delivery-suite" id="delivery-suite" placeholder="Улица, дом"/>
+                <input data-clear-btn="true" type="text" name="delivery-city" id="delivery-city" placeholder="Город"/>
 
                 <div id="delivery-container">
                 </div>
@@ -290,11 +290,11 @@
                 <ul data-role="listview" data-inset="true" style="margin-bottom: -1px;">
                     <% if(delivery_description) { %>
                         <li>
-                            <h2>Delivery description:</h2>
+                            <h2>Описание доставки:</h2>
                             <p class="long-text"><%=delivery_description%></p>
                         </li>
                     <% } %>
-                    <li>Delivery Charge: <span class='currency ui-li-count'><%=delivery%></span></li>
+                    <li>Стоимость доставки: <span class='currency ui-li-count'><%=delivery%></span></li>
                 </ul>
             </script>
             
@@ -303,14 +303,14 @@
             <script id="order-pice-template" type="text/template">
                 <ul data-role="listview" data-inset="true" style="margin-top: 0;">
                     <li>Tax<span class='currency ui-li-count'><%=tax%></span></li>
-                    <li>Total<span class='currency ui-li-count'><%=total%></span></li>
+                    <li>Итого<span class='currency ui-li-count'><%=total%></span></li>
                 </ul>
             </script>
 
             <div data-role="fieldcontain" class="block">
-                <span>When do you want to receive your order?</span>
+                <span>Когда вы хотите получить заказ?</span>
                 <select id="ready-time-select" data-mini="true" data-placeholder="true" data-native-menu="false">
-                    <option value="ASAP" selected="selected">As Soon as Possible</option>
+                    <option value="ASAP" selected="selected">По готовности заказа</option>
                     <option value="8:00 AM">8:00 AM</option>
                     <option value="8:15 AM">8:15 AM</option>
                     <option value="8:30 AM">8:30 AM</option>
@@ -372,7 +372,7 @@
             </div>
 
             <br/>
-            <a href="#" onclick="validateDelivery();" data-role="button" data-icon="check">Choose Payment Method</a>
+            <a href="#" onclick="validateDelivery();" data-role="button" data-icon="check">выберите метод оплаты</a>
         </div>
         <div data-role="footer"></div>
     </div>
@@ -382,24 +382,24 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" data-reverse="true" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Payment Details</span>
+                <span>Детали оплаты</span>
             </div>
         </div>
         <div data-role="content" class="block adaptive">
             <fieldset data-role="controlgroup" data-type="horizontal" id="payment-type">
-                <legend>Payment Method</legend>
+                <legend>Метод оплаты</legend>
                 <input type="radio" name="radio-payment" id="radio-payment-credit-input" value="CREDIT_CARD" checked="checked" onclick="creditCardSelected();"/>
                 <label for="radio-payment-credit-input" id="radio-payment-credit-label">
-                    <span class="ui-radio-icon ui-icon-credit-card"></span> Credit Card
+                    <span class="ui-radio-icon ui-icon-credit-card"></span> Кредитка
                 </label>
                 <input type="radio" name="radio-payment" id="radio-payment-cash-input" value="CASH" onclick="cashSelected();"/>
                 <label for="radio-payment-cash-input" id="radio-payment-cash-label">
-                    Pay by Cash <span class="ui-radio-icon ui-icon-cash"></span>
+                    Наличные <span class="ui-radio-icon ui-icon-cash"></span>
                 </label>
             </fieldset>
             <br/>
-            <a href="#" id="credit-card-button" data-role="button" data-icon="forward" onclick="processPaymentType();">Choose Credit Card</a>
-            <a href="#" id="order-confirmation" data-role="button" data-icon="check" style="display: none;" onclick="processPaymentType();">Confirm Order</a>
+            <a href="#" id="credit-card-button" data-role="button" data-icon="forward" onclick="processPaymentType();">Выбрать кредитку</a>
+            <a href="#" id="order-confirmation" data-role="button" data-icon="check" style="display: none;" onclick="processPaymentType();">Подтвердить заказ</a>
         </div>
         <div data-role="footer"></div>
     </div>
@@ -409,18 +409,18 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" data-reverse="true" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Payment Information</span>
+                <span>Информация для оплаты</span>
             </div>
         </div>
         <div data-role="content" class="adaptive block">
-            <a onclick="creditCards.useDifferent();" data-role="button" data-inline="true" data-mini="true" data-icon="forward">Use a Different Credit Card</a>
+            <a onclick="creditCards.useDifferent();" data-role="button" data-inline="true" data-mini="true" data-icon="forward">Ввести другую кредитку</a>
             <div data-role="fieldcontain" class="block">
-                <span>Select Credit Card:</span>
+                <span>Выберите кредитку:</span>
                 <select data-native-menu="false" id="credit-cards-list"></select>
             </div>
 
             <br/>
-            <a href="#" data-role="button" data-icon="check" onclick="order.setCreditCard($('#credit-cards-list').val(), order.displayInfo);">Confirm Order</a>
+            <a href="#" data-role="button" data-icon="check" onclick="order.setCreditCard($('#credit-cards-list').val(), order.displayInfo);">Подтвердить заказ</a>
 
             <script id="credit-cards-template" type="text/template">
                 <% _.each(cards, function(card) { %>
@@ -438,21 +438,21 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" data-reverse="true" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Card Details</span>
+                <span>Детали карточки</span>
             </div>
         </div>
         <div data-role="content" class="adaptive"><form class="block" id="new-card-form"> </form></div>
         <script id="enter-credit-card-template" type="text/template">
-            <input id="credit-card-number" name="credit-card-number" data-mini="true" data-clear-btn="true" value="<%=creditCardNumber%>" class="required card" placeholder="Card Number" />
+            <input id="credit-card-number" name="credit-card-number" data-mini="true" data-clear-btn="true" value="<%=creditCardNumber%>" class="required card" placeholder="Номер карточки" />
                 
             <div class="block">
-                <span for="credit-card-expiration-month" style="margin-right: 0.5em;">Expiration Date</span>
+                <span for="credit-card-expiration-month" style="margin-right: 0.5em;">Дата истечения карточки</span>
                 <div class="card-expiration-container" style="display: inline;"></div>
             </div>
 
-            <input id="credit-card-security-code" name="credit-card-security-code" data-clear-btn="true" value="<%=creditCardSecCode%>" class="required" minlength="3" placeholder="Security Code"/>
+            <input id="credit-card-security-code" name="credit-card-security-code" data-clear-btn="true" value="<%=creditCardSecCode%>" class="required" minlength="3" placeholder="Код безопасности"/>
             
-            <input id="credit-card-full-name" name="credit-card-full-name" data-clear-btn="true" value="<%=creditCardFullName%>" class="required" minlength="3" placeholder="Cardholder Name"/>
+            <input id="credit-card-full-name" name="credit-card-full-name" data-clear-btn="true" value="<%=creditCardFullName%>" class="required" minlength="3" placeholder="Имя владельца"/>
 
             <br/>
             <input type="submit" data-role="button" data-icon="forward" value="Confirm Order" />            
@@ -483,7 +483,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Your Saved Orders</span>
+                <span>Ваши сохранённые заказы</span>
             </div>
         </div>
         <div data-role="content" class="adaptive"> <!-- Dynamical content --> </div>
@@ -493,13 +493,13 @@
                     <li class="orderItem" data-icon="<% if (order.id == getCurrentOrderID()) { %>check<% } else { %>arrow-r<% } %>">
                         <a onclick="createOrderFromPrevious(<%=order.id%>);">
                             <h5>
-                                <i>Order Id: </i> #<%=order.id%>
+                                <i>Id заказа: </i> #<%=order.id%>
                             </h5>
                             <p>
-                                <i>Order Name: </i> <%=unescape(order.name)%>
+                                <i>Имя заказа: </i> <%=unescape(order.name)%>
                             </p>
                             <p>
-                                <i>Ordered On: </i> <%=order.createdAt%>
+                                <i>Дата заказа: </i> <%=order.createdAt%>
                             </p>
                         </a>
                     </li>
@@ -511,14 +511,14 @@
     </div>
 
     <div id="order-name-editing-popup" data-role="popup" data-overlay-theme="c" data-transition="pop" class="ui-content" align="center" data-dismissible="false">
-        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
+        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Закрыть</a>
         <form id="order-name-form">
             <div id="popup-ordername-container"></div>
-            <a data-role="button" data-inline="true" data-rel="back" data-mini="true" data-theme="b">Cancel</a>
+            <a data-role="button" data-inline="true" data-rel="back" data-mini="true" data-theme="b">Отмена</a>
             <input type="submit" data-role="button" data-inline="true" data-mini="true" data-theme="b" value="Save">
         </form>
         <script id="input-template" type="text/template">            
-            <input id="order-name-input" name="order-name-input" placeholder="Order name" value="<%=orderName%>" data-mini="true" class="required" minlength="3" />
+            <input id="order-name-input" name="order-name-input" placeholder="Имя заказа" value="<%=orderName%>" data-mini="true" class="required" minlength="3" />
         </script>
     </div>
 
@@ -527,7 +527,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Your Current Order</span>
+                <span>Ваш текущий заказ</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
@@ -537,7 +537,7 @@
             <ul data-role="listview" data-inset="true" class="details-list">
                 <li class="js-static" onclick="showEditPopup('<%=unescape(order.name)%>');" data-icon="edit">
                     <a>
-                        <span>Order Name </span>
+                        <span>Имя заказа </span>
                         <span class="ui-li-count" style="max-width:12.5em; overflow: hidden; text-overflow: ellipsis;"><%=unescape(order.name)%></span>
                     </a>
                 </li>
@@ -548,28 +548,28 @@
                                 <img src="<%=orderItem.image_url%>"/>
                             <% } %>
                             <h2><%=orderItem.name%></h2>
-                            <small>Quantity: <%=orderItem.quantity%></small>
+                            <small>Количество: <%=orderItem.quantity%></small>
                             <% if (orderItem.total_cost && orderItem.total_cost > 0) { %>
                                 <span class="ui-li-count currency"><%=orderItem.total_cost%></span>
                             <% } %>
                             <% if (orderItem.special_instructions) { %>
                                 <br/>
-                                <small style="white-space: normal;">Special instructions: <%=orderItem.special_instructions%></small>
+                                <small style="white-space: normal;">Специальные инструкции: <%=orderItem.special_instructions%></small>
                             <% } %>
                             <% if (orderItem.comment) { %>
                                 <br/>
-                                <small style="white-space: normal;">Comment: <%=orderItem.comment%></small>
+                                <small style="white-space: normal;">Комментарий: <%=orderItem.comment%></small>
                             <% } %>
                         </a>
                     </li>
                 <% }); %>
                 
                 <li class="js-static">
-                    <b>Subtotal</b>
+                    <b>Промежуточная цена</b>
                     <span class='currency ui-li-count'><%=order.cost%></span>
                 </li>
                 <li class="js-static ui-li-has-select">
-                    <b>Tips</b>
+                    <b>Чаевые</b>
                     <select data-theme="a" id="tips-select" data-mini="true" data-native-menu="false" data-inline="true" onchange="onTipChanged();" <% if(order.order_items.length == 0) { %> disabled<% } %>>
                         <option value="0" <% if(order.tips_percent == 0) { %>selected="selected" <% } %>>0%</option>
                         <option value="10" <% if(order.tips_percent == 10) { %>selected="selected" <% } %>>10%</option>
@@ -581,12 +581,12 @@
                     <span class='currency ui-li-count'><%=order.tips%></span>
                 </li>
                 <li class="js-static">
-                    <b>Total</b>
+                    <b>Итого</b>
                     <span class='currency ui-li-count'><%=order.cost_without_tax%></span>
                 </li>
             </ul>
-            <a href="#" onclick="sendOrderAutomatically = false; menuViewer.displayWholeMenu(menuCategories.getCurrentMenuType());" data-role="button" data-icon="arrow-r">Continue Ordering</a>
-            <a id="submit-button" style="<% if (order.order_items.length == 0) { %> display: none;<% } else { %> display: block; <% } %>" onclick="chooseDeliveryOptions();" data-role="button" data-icon="check">Choose Delivery Options</a>
+            <a href="#" onclick="sendOrderAutomatically = false; menuViewer.displayWholeMenu(menuCategories.getCurrentMenuType());" data-role="button" data-icon="arrow-r">Вернутся в меню</a>
+            <a id="submit-button" style="<% if (order.order_items.length == 0) { %> display: none;<% } else { %> display: block; <% } %>" onclick="chooseDeliveryOptions();" data-role="button" data-icon="check">Выбрать тип доставки</a>
         </script>
         
         <div data-role="footer"></div>
@@ -597,7 +597,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a onclick="gotoScreen('#home-page', true);" data-direction="reverse" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>My Coupons</span>
+                <span>Мои купоны</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
@@ -606,7 +606,7 @@
         <script id="coupons-template" type="text/template">
             <% if(locations.length > 0) { %>
                 <div data-role="fieldcontain" class="block">
-                    <span>Set Order Location:</span><br/>
+                    <span>Выбрать локацию ресторана:</span><br/>
                     <select id="coupons-locations-select" data-native-menu="false" onchange="coupons.changeLocation();">
                         <% _.each(locations, function(location) { %>
                             <option value="<%=location.id%>" <% if(location.location_id && location.id == location.location_id) { %>selected="selected"<% } %>>
@@ -622,18 +622,18 @@
                     <% _.each(coupons, function(coupon) { %>
                         <li data-icon="arrow-r">
                             <a id="<%=coupon.id%>" onclick="coupons.gotoCouponView(<%=coupon.id%>)">
-                                <span>Title: <%= coupon.name || "Coupon" %></span>
-                                <span>Description: <%=coupon.description%></span>
-                                <span>Expires On: <%=coupon.expires_at%></span>
-                                <span>Status: <b>
-                                    <% if (coupon.status == "ISSUED") { %> VALID <% } else { %> <%=coupon.status%> <% } %>
+                                <span>Заголовок: <%= coupon.name || "Coupon" %></span>
+                                <span>Описание: <%=coupon.description%></span>
+                                <span>Истекает: <%=coupon.expires_at%></span>
+                                <span>Статус: <b>
+                                    <% if (coupon.status == "ISSUED") { %> Валидный <% } else { %> <%=coupon.status%> <% } %>
                                 </b></span>
                             </a>
                         </li>
                     <% }); %>
                 </div>
             <% } else { %>
-                <p class="block">No coupons</p>
+                <p class="block">Нет купонов</p>
             <% } %>            
         </script>
         <div data-role="footer"></div>
@@ -644,7 +644,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a href="#my-coupons-page" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>View and redeem Coupon</span>
+                <span>Просмотр/использование купонов</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
@@ -657,17 +657,17 @@
                 <% if (restrictions) { %>
                     <li><%=restrictions%></li>
                 <% } %>
-                <li>Expires on <%=expires_at%></li>
+                <li>Дата истечения <%=expires_at%></li>
             </ul>
             <% if (status == "REDEEMED") { %>
                 <ul data-role="listview" data-inset="true">
                     <li>
                         <img src="img/icons/check.png">
-                        <h2 style="white-space: initial;">Redeemed on <%=redeemed_at%></h2>
+                        <h2 style="white-space: initial;">Дата использования <%=redeemed_at%></h2>
                     </li>
                 </ul>
             <% } else { %>
-                <a onclick="coupons.redeemCoupon(<%=id%>)" href="#" data-rel="popup" data-transition="pop" data-role="button" data-close-btn="none" <% if(status !== 'ISSUED') { %> class="ui-state-disabled" <% } %>> Redeem at the Restaurant</a>
+                <a onclick="coupons.redeemCoupon(<%=id%>)" href="#" data-rel="popup" data-transition="pop" data-role="button" data-close-btn="none" <% if(status !== 'ISSUED') { %> class="ui-state-disabled" <% } %>> Использовать</a>
             <% } %>
         </script>
         <div data-role="footer"></div>
@@ -677,15 +677,15 @@
         <div data-role="header" data-position="fixed">
             <img src="img/restaurant/header.png"/>
             <div>
-                <span>Thank You for Your Order</span>
+                <span>Спасибо за ваш заказ</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
             <p class="block" id="thank-text-container"></p><br/>
             <script id="thank-text-template" type="text/template">
-                Thank You for Your order!<br/>
-                Order #<%=orderId%> will be ready soon!<br/>
-                In a 5 seconds you will be redirected to the home screen.
+                Спасибо за ваш заказ!<br/>
+                Заказ #<%=orderId%> скоро будет готов!<br/>
+                Через 5 секунд вы будите перенаправлены на домашнюю страницу.
             </script>
             
             <div id="thank-you-animation" class="slider-container" style="position: relative; top: -10px; left: -5px; right: -5px; width: 320px; height: 192px;">
@@ -694,7 +694,7 @@
             </div>
 
             <p class="block">
-                <a href="#" onclick="gotoScreen('#home-page', false);" data-inline="true" data-role="button">Go to Home Screen</a>
+                <a href="#" onclick="gotoScreen('#home-page', false);" data-inline="true" data-role="button">Домашняя страница</a>
             </p>
             <br/>
         </div>
@@ -705,29 +705,28 @@
         <div data-role="header" data-position="fixed">
             <img src="img/restaurant/header.png"/>
             <div>
-                <span>Welcome</span>
+                <span>Добро пожаловать</span>
             </div>
         </div>
         <div data-role="content" class="adaptive block">
             <script id="welcome-label-template" type="text/template">
-                Thank you for installing and welcome <%=restaurant%> to the mobile app. By using our mobile app you can now:
+                Спасибо за установку И добро пожаловать мобильное приложение <%=restaurant%>. Используя наше приложение вы можете:
             </script>
             <p id="welcome-label-container"></p>
             <ol data-role="listview" data-inset="true">
-                <li>Quickly and easily place pickup and delivery orders right from your phone</li>
-                <li>Receive our daily, holiday and other spacials by email, text message</li>
-                <li>Get coupons and offers</li>
-                <li>Earn rewards</li>
-                <li>Share, Invite and Connect with Your Friends</li>
-                <li>And much more...</li>
+                <li>Делать заказы в приложении</li>
+                <li>Бронировать столики</li>
+                <li>Делиться с друзьями</li>
+                <li>Просматривать галлерею</li>
+                <li>И многое другое...</li>
             </ol>
             <br/>
             <nav class="large">
                 <a id="share-email-welcome-button" onclick="sendEmail();" data-role="button" data-icon="share-friends">
-                    <span>Share with<br/>Your Friend</span>
+                    <span>Поделись с другом</span>
                 </a>
                 <a onclick="menuViewer.displayWholeMenu(MAIN_MENU_QUERY);" data-role="button" data-icon="browse-menu">
-                    <span>Browse Our Menu</span>
+                    <span>Просмотр меню</span>
                 </a>
             </nav>
             <br/>
@@ -740,22 +739,22 @@
             <img src="img/restaurant/header.png" onclick="doNotShowItemWhenGoingToMenu(); gotoScreen('#home-page', true);" />
             <div>
                 <a data-rel="back" onclick="$('#password1, #password2').val(''); isNeedGotoWelcome = true;" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Create Your FREE Account</span>
+                <span>Регистрация</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
             <form id="register-form" class="block">
                 <div data-role="fieldcontain">
-                    <input type="text" class="required" id="new-first-name" name="first-name" placeholder="First Name">
-                    <input type="text" class="required" id="new-last-name" name="last-name" placeholder="Last Name">
-                    <input type="text" class="required phone" id="new-phone" name="phone" placeholder="Phone">
+                    <input type="text" class="required" id="new-first-name" name="first-name" placeholder="Имя">
+                    <input type="text" class="required" id="new-last-name" name="last-name" placeholder="Фамилия">
+                    <input type="text" class="required phone" id="new-phone" name="phone" placeholder="Телефон">
                     <input type="email" class="required email" id="new-email" name="email" placeholder="Email">
-                    <input minlength="4" class="required" type="password" id="new-password1" name="password1" placeholder="Password">
-                    <input type="password" class="required" equalto="#new-password1" id="new-password2" name="password2" placeholder="Confirm Password">
+                    <input minlength="4" class="required" type="password" id="new-password1" name="password1" placeholder="Пароль">
+                    <input type="password" class="required" equalto="#new-password1" id="new-password2" name="password2" placeholder="Подтвердите пароль">
                 </div>
 
                 <div data-role="fieldcontain">
-                    <span class="js-select-name">Set Default Location:</span><br/>
+                    <span class="js-select-name">Выберите локацию ресторана:</span><br/>
                     <select id="new-user-location" data-native-menu="false"></select>
                 </div>
 
@@ -767,23 +766,23 @@
                     <% } %>
                 </script>
                 
-                <fieldset data-role="controlgroup">
-                    <p class="block">How would you like to be reminded about our daily specials, chef specials, coupons, events and etc.</p>
+                <fieldset data-role="controlgroup" style="visibility:hidden">
+                    <p class="block">Оповещение о специальных предложених, купонах, Событиях и т.д.</p>
                     <input checked disabled type="checkbox" data-mini="true" name="new-email-rem" id="new-email-rem">
                     <label for="new-email-rem">Email</label>
                     <input type="checkbox" data-mini="true" name="new-sms-rem" id="new-sms-rem">
-                    <label for="new-sms-rem">Text message</label>
+                    <label for="new-sms-rem">Текстовое сообщение</label>
                     <input checked disabled type="checkbox" data-mini="true" name="new-push-rem" id="new-push-rem">
-                    <label for="new-push-rem">Push notification</label>
+                    <label for="new-push-rem">Пуш уведомление</label>
                 </fieldset>
-                <fieldset data-role="controlgroup">
+                <fieldset data-role="controlgroup" style="visibility:hidden">
                     <br/>
                     <a onclick="gotoScreen('#policy-page', false);" data-role="button" data-inline="true" data-mini="true">
                         Privacy Policy &amp; Terms of Service
                     </a>
                 </fieldset>
                 <br/>
-                <input type="submit" data-role="button" value="Create Your FREE Account">
+                <input type="submit" data-role="button" value="Создай свой аккаунт">
             </form>
         </div>
     </div>
@@ -793,7 +792,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>My Account</span>
+                <span>Мой аккаунт</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
@@ -801,31 +800,31 @@
         </div>
         <script id="edit-account-template" type="text/template">
             <form id="edit-account-form">
-                <label for="first-name">First Name:</label>
+                <label for="first-name">Имя:</label>
                 <input type="text" id="first-name" name="first-name" data-mini="true" data-clear-btn="true" class="required" value="<%=user.firstName%>">
     
-                <label for="last-name">Last Name:</label>
+                <label for="last-name">Фамилия:</label>
                 <input type="text" id="last-name" name="last-name" data-mini="true" data-clear-btn="true" class="required" value="<%=user.lastName%>">
 
-                <label for="phone">Phone:</label>
+                <label for="phone">Телефон:</label>
                 <input type="text" id="phone" name="phone" data-mini="true" data-clear-btn="true" class="required phone" value="<%=user.phone%>">
 
                 <label for="email">Email:</label>
                 <input type="hidden" id="old-email" value="<%=user.email%>" />
                 <input type="email" id="email" name="email" data-mini="true" disabled="disabled" class="required email" value="<%=user.email%>">
 
-                <label for="password1">Password:</label>
+                <label for="password1">Пароль:</label>
                 <input type="hidden" id="old-password" value="<%=user.password%>" />
                 <input type="password" id="password1" name="password1" data-mini="true" data-clear-btn="true" class="required password" value="<%=user.password%>">
 
-                <label for="password2">Confirm Password:</label>
+                <label for="password2">Подтвердить пароль:</label>
                 <input type="password" id="password2" name="password2" data-mini="true" equalto="#password1" data-clear-btn="true" class="required" value="<%=user.password%>">
 
-                <label for="user-location" class="js-select-name">Set Default Location:</label>
+                <label for="user-location" class="js-select-name">Выберите локацию ресторана:</label>
                 <select id="user-location" data-native-menu="false"></select>
 
 
-                <fieldset data-role="controlgroup">
+                <fieldset data-role="controlgroup" style="visibility:hidden">
                     <p>How would you like to be reminded about our daily specials, chef specials, coupons, events and etc.</p>
                     <input checked disabled type="checkbox" data-mini="true" name="email-rem" id="email-rem" <% if (notifyEmail) { %> checked="checked" <% } %>>
                     <label for="email-rem">Email</label>
@@ -835,7 +834,7 @@
                     <label for="push-rem">Push notification</label>
                 </fieldset>
                 <br/>
-                <input type="submit" data-role="button" value="Update Account Info">
+                <input type="submit" data-role="button" value="Сохранить изменения">
             </form>
         </script>
     </div>
@@ -843,18 +842,18 @@
     <div data-role="dialog" id="login-dialog" data-close-btn="none" class="fixed-posittion">
         <div data-role="header">
             <a href="#" onclick="sendOrderAutomatically = false; isNeedGotoWelcome = true; $('#login-dialog').dialog('close'); signupLocationId = null;" data-role="button" data-icon="delete" data-iconpos="notext"></a>
-            <h1>Log In</h1>
+            <h1>Авторизация</h1>
         </div>
         <div data-role="content">
             <label class="error" id="loginerrors"></label>
             <form id="login-form">
                 <input type="text" class="required email" id="login-email" name="login-email" placeholder="Email">
-                <input type="password" class="required" minlength="4" id="login-password" name="login-password" placeholder="Password">
-                <input type="submit" data-role="button" value="Log In">
+                <input type="password" class="required" minlength="4" id="login-password" name="login-password" placeholder="Пароль">
+                <input type="submit" data-role="button" value="Авторизация">
             </form>
             <br/>
             <p class="block">
-                <button onclick="logInCallback = undefined; openRegisterPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini">Sign Up for Your FREE Account</button>
+                <button onclick="logInCallback = undefined; openRegisterPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini">Зарегистрируй свой аккаунт</button>
             </p>
         </div>
     </div>
@@ -862,7 +861,7 @@
     <div data-role="page" id="location-page">
         <script id="location-page-suheader-template" type="text/x-handlebars-template">
             <a <% if(goFromPhones) { %> data-rel="back" <% } else { %> onclick="gotoRestaurantLocationsView(null, null, true);" <% } %> class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-            <span>Location View</span>
+            <span>Просмотр локации</span>
         </script>
         <div data-role="header" data-position="fixed">
             <img src="img/restaurant/header.png"/>
@@ -873,12 +872,12 @@
         <script id="location-template" type="text/x-handlebars-template">
             <% if (default_location != id) { %>
                 <% if (features.order.by_app) { %>
-                    <a href="#" onclick="setDefaultLocation(<%=id%>)" data-role="button" data-icon="check">Set this Location as Default</a>
+                    <a href="#" onclick="setDefaultLocation(<%=id%>)" data-role="button" data-icon="check">Сделать эту локацию по умолчанию</a>
                 <% } %>
             <% } %>
             
             <% if(features.gift_card.by_email) { %>
-                <a href="#" onclick="gotoGiftCards();" data-role="button" data-icon="arrow-r" data-inline="true">Send gift card</a>            
+                <a href="#" onclick="gotoGiftCards();" data-role="button" data-icon="arrow-r" data-inline="true">Послать подарочную карту</a>            
             <% } %>
 
             <ul data-role="listview" data-inset="true" class="extended-list">
@@ -890,25 +889,25 @@
                     <% if (default_location == id) { %>
                         <li data-role="list-divider" data-theme="a">
                             <img src="img/icons/current-location.png"/>
-                            <h2>This Location is Default</h2>
+                            <h2>Эта локация выбрана</h2>
                         </li>
                     <% } else { %>
                         <% if (!features.order.by_app) { %>
                             <li>
                                 <img src="img/icons/nonavailable-location.png"/>
-                                <h2>Not Available to Order by App</h2>
+                                <h2>Нет локаций для заказа</h2>
                             </li>
                         <% } %>
                     <% } %>                
                 <% } %>     
                 <li>
                     <img src="img/icons/address.png"/>
-                    <b><i>Address:</i> <%=address.address%>, <%=address.city%>, <%=address.state%>, <%=address.zip_code%></b>
+                    <b><i>Адрес:</i> <%=address.address%>, <%=address.city%>, <%=address.state%>, <%=address.zip_code%></b>
                 </li>
                 <% if (info.contact_first_name) { %>
                     <li>
                         <img src="img/icons/contacts.png"/>
-                        <h2><i>Contact person:</i>
+                        <h2><i>Контактное лицо:</i>
                         <%=info.contact_first_name%> <%=info.contact_last_name%></h2>
                     </li>
                 <% } %>
@@ -921,33 +920,33 @@
                 <% if (info.phone) { %>
                     <li>
                         <img src="img/icons/order-phone.png"/>
-                        <a href="tel:<%=info.phone%>" data-icon="phone"><i>Phone:</i> <%=info.phone%></a>
+                        <a href="tel:<%=info.phone%>" data-icon="phone"><i>Телефон:</i> <%=info.phone%></a>
                     </li>
                 <% } %>
                 <% if (info.orders_phone) { %>
                     <li>
                         <img src="img/icons/order-phone.png"/>
-                        <a href="tel:<%=info.orders_phone%>" data-icon="phone"><i>Order by Phone:</i> <%=info.orders_phone%></a>
+                        <a href="tel:<%=info.orders_phone%>" data-icon="phone"><i>Телефон для заказа:</i> <%=info.orders_phone%></a>
                     </li>
                 <% } %>
                 <% if (hours.opening) { %>
                     <li>
                         <img src="img/icons/hours.png"/>
-                        <h2><i>Hours Of Operation:</i><br/>
+                        <h2><i>Время работы:</i><br/>
                         <%=hours.opening%></h2>
                     </li>
                 <% } %>
                 <% if (info.longitude) { %>
                     <li>
                         <img src="img/icons/map.png"/>
-                        <h2>Position:</h2>
+                        <h2>Дислокация:</h2>
                         <input type="hidden" id="latitude" value="<%=info.latitude%>" />
                         <input type="hidden" id="longitude" value="<%=info.longitude%>" />
                         <div id="map_canvas" style="width: 100%; min-width: 250px; min-height: 250px">
                         </div><p>
-                            Longitude: <%=info.longitude%>, Latitude: <%=info.latitude%>
+                            Долгота: <%=info.longitude%>, Широта: <%=info.latitude%>
                         </p>
-                        <span><a data-role="button" data-inline="true" class="action-bar" onclick="locationsGeolocation.buildDirection();">Get direction</a></span>                        
+                        <span><a data-role="button" data-inline="true" class="action-bar" onclick="locationsGeolocation.buildDirection();">Построить маршрут</a></span>                        
                     </li>
                 <% } %>
             </ul>
@@ -961,7 +960,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a onclick="gotoScreen('#home-page', true);" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Our Locations</span>
+                <span>Наши локации</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
@@ -969,7 +968,7 @@
                 <li data-role="list-divider" class="js-static">
                     <h2>
                         <img src="img/icons/current-location.png" />
-                        Your currently selected location
+                        Ваша выбранная локация
                     </h2>
                 </li>
             </ul>
@@ -978,7 +977,7 @@
                 <li data-role="list-divider" class="js-static">
                     <h2>
                         <img src="img/icons/available-location.png" />
-                        Select another to order online
+                        Выберите другую для заказов
                     </h2>
                 </li>
             </ul>
@@ -987,7 +986,7 @@
                 <li data-role="list-divider" class="js-static">
                     <h2 style="white-space: normal;">
                         <img src="img/icons/nonavailable-location.png" />
-                        Call any of these other locations to order <small>(In app ordering is not enabled for these locations)</small>
+                        Позвонить в ресторан для заказа <small>(Заказы не доступны в приложении)</small>
                     </h2>
                 </li>
             </ul>
@@ -996,7 +995,7 @@
                 <li data-role="list-divider" class="js-static">
                     <h2 style="white-space: normal;">
                         <img src="img/icons/phone.png" />
-                        Locations with ordering via phone
+                        Локации с возможностью заказа по телефону
                     </h2>
                 </li>
             </ul>
@@ -1018,7 +1017,7 @@
                         <% if (location.features.gift_card.by_email) { %><img src="img/icons/gift.png"><% } %>
                     </p>
                     <p class="long-text">
-                        <i>Address:</i> 
+                        <i>Адрес:</i> 
                         <%=location.address.address%>, <%=location.address.city%>, <%=location.address.state%>, <%=location.address.zip_code%>
                     </p>
                     <% if (location.info.email) { %>
@@ -1029,7 +1028,7 @@
                     <% } %>
                     <% if (location.info.phone) { %>
                         <p>
-                            <i>Phone:</i>
+                            <i>Телефон:</i>
                             <%=location.info.phone%>
                         </p>
                     <% } %>
@@ -1149,7 +1148,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Photo Wall</span>
+                <span>Галлерея</span>
             </div>
         </div>
         <div data-role="content" class="adaptive">
@@ -1174,57 +1173,57 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a href="#" onclick="gotoScreen('#home-page', true);" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>View Orders</span>
-                <a href="#" onclick="admin.refreshOrderList();" data-role="button" class="ui-btn">Refresh</a>
+                <span>Заказы</span>
+                <a href="#" onclick="admin.refreshOrderList();" data-role="button" class="ui-btn">Обновить</a>
             </div>
         </div>
         <div data-role="content"><!-- Dynamic content --></div>
         <script id="admin-order-list-template" type="text/template">
-            <p class="block">Select Orders to View</p>
+            <p class="block">Фильрация</p>
             <div class="ui-grid-a">
                 <div class="ui-block-a">
                     <select name="admin-orders-period" data-mini="true" id="admin-orders-period" data-native-menu="false" onchange="admin.sortConditionChanged();">
-                        <option value="all" <% if(selectedPeriod == 'all') { %>selected<% } %>>ALL PERIODS</option>
-                        <option value="today" <% if(selectedPeriod == 'today') { %>selected<% } %>>RECEIVED TODAY</option>
-                        <option value="yesterday" <% if(selectedPeriod == 'yesterday') { %>selected<% } %>>RECEIVED YESTERDAY</option>
-                        <option value="this_week" <% if(selectedPeriod == 'this_week') { %>selected<% } %>>RECEIVED THIS WEEK</option>
-                        <option value="this_month" <% if(selectedPeriod == 'this_month') { %>selected<% } %>>RECEIVED THIS MONTH</option>
-                        <option value="this_year" <% if(selectedPeriod == 'this_year') { %>selected<% } %>>RECEIVED THIS YEAR</option>
+                        <option value="all" <% if(selectedPeriod == 'all') { %>selected<% } %>>Всё время</option>
+                        <option value="today" <% if(selectedPeriod == 'today') { %>selected<% } %>>Полученные сегодня</option>
+                        <option value="yesterday" <% if(selectedPeriod == 'yesterday') { %>selected<% } %>>Полученные вчера</option>
+                        <option value="this_week" <% if(selectedPeriod == 'this_week') { %>selected<% } %>>Полученные на этой неделе</option>
+                        <option value="this_month" <% if(selectedPeriod == 'this_month') { %>selected<% } %>>Полученные в этом месяце</option>
+                        <option value="this_year" <% if(selectedPeriod == 'this_year') { %>selected<% } %>>Полученные в этому году</option>
                     </select>
                 </div>
                 <div class="ui-block-b">
                     <select name="admin-orders-status" data-mini="true" id="admin-orders-status" data-native-menu="false" onchange="admin.sortConditionChanged();">
-                        <option value="ALL_STATUSES" <% if(selectedStatus == 'ALL_STATUSES') { %>selected<% } %>>ALL STATUSES</option>
-                        <option value="SUBMITTED" <% if(selectedStatus == 'SUBMITTED') { %>selected<% } %>>SUBMITTED</option>
-                        <option value="BEING_PREPARED" <% if(selectedStatus == 'BEING_PREPARED') { %>selected<% } %>>BEING PREPARED</option>
-                        <option value="READY" <% if(selectedStatus == 'READY') { %>selected<% } %>>READY</option>
-                        <option value="CANCELED_BY_RESTAURANT" <% if(selectedStatus == 'CANCELED_BY_RESTAURANT') { %>selected<% } %>>REJECTED</option>
+                        <option value="ALL_STATUSES" <% if(selectedStatus == 'ALL_STATUSES') { %>selected<% } %>>Все статусы</option>
+                        <option value="SUBMITTED" <% if(selectedStatus == 'SUBMITTED') { %>selected<% } %>>Не обработанные</option>
+                        <option value="BEING_PREPARED" <% if(selectedStatus == 'BEING_PREPARED') { %>selected<% } %>>Готовится</option>
+                        <option value="READY" <% if(selectedStatus == 'READY') { %>selected<% } %>>Готовы</option>
+                        <option value="CANCELED_BY_RESTAURANT" <% if(selectedStatus == 'CANCELED_BY_RESTAURANT') { %>selected<% } %>>RОтклонены</option>
                     </select>
                 </div>
             </div>
             <br/>
             <% if(orders.length > 0) { %>
                 <ul data-role="listview" data-inset="true" class="centered-listview-header big-arrow">
-                    <li data-role="list-divider">Orders auto-refreshed every 30 sec</li>
+                    <li data-role="list-divider">Обновление каждые 30 секунд</li>
                     <% _.each(orders, function(item) { %>
                         <li>
                             <a href="#" onclick="loadAdminViewOrder(<%=item.id%><% if(item.source_app) { %>, '<%=item.source_app%>' <% } %>);" <% if( item.status == 'SUBMITTED' && ($('#admin-orders-status option:selected').val() == 'ALL_STATUSES' || $('#admin-orders-status option:selected').val() == undefined)) { %>class="yellow-background"<% } %>>
                                 <div class="custom-table block order-table">
-                                    <span>Status: <b><%=admin.normaliseStatus(item.status)%></b></span></br>
+                                    <span>Статус: <b><%=admin.normaliseStatus(item.status)%></b></span></br>
                                     <div>
-                                        <span>Order <b>#<%=item.id%></b>
+                                        <span>Заказ <b>#<%=item.id%></b>
                                         <% if(item.source_app && item.source_app == 'meal_usa') { %>
-                                            from <b>Website</b>
+                                            с <b>Сайта</b>
                                         <% } else { %>
-                                            from <b>Mobile App</b>                                    
+                                            с <b>Приложения</b>                                    
                                         <% } %>
                                         </span>
-                                        <span>When needed: <b><%=item.time_requested%></b></span>
-                                        <span>Submitted At: <b><%=item.submitted_at%></b></span>
+                                        <span>Когда нужно: <b><%=item.time_requested%></b></span>
+                                        <span>Время заказа: <b><%=item.submitted_at%></b></span>
                                     </div>
                                     <div>
-                                        <span>Payment: <b><%=admin.normalisePaymentType(item.payment_type)%></b></span>
-                                        <span>Delivery: <b><%=item.order_acceptance%></b></span>
+                                        <span>Оплата: <b><%=admin.normalisePaymentType(item.payment_type)%></b></span>
+                                        <span>Доставка: <b><%=item.order_acceptance%></b></span>
                                     </div>
                                 </div>
                                 <br/>
@@ -1236,12 +1235,12 @@
                 <div id="pagination-container" class="block">
                     <% if(total_pages > 1) { %>
                         <p><span id="current-page"><%=current_page%></span> of <%=total_pages%></p>
-                        <a href="#" onclick="admin.previousPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-arrow-l <% if(current_page == 1) { %> ui-disabled <% } %>">Previous</a>
-                        <a href="#" onclick="admin.nextPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-right ui-icon-arrow-r <% if(current_page == total_pages) { %> ui-disabled <% } %>">Next</a>
+                        <a href="#" onclick="admin.previousPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-arrow-l <% if(current_page == 1) { %> ui-disabled <% } %>">Предыдущяя</a>
+                        <a href="#" onclick="admin.nextPage();" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-right ui-icon-arrow-r <% if(current_page == total_pages) { %> ui-disabled <% } %>">Следующая</a>
                     <% } %>
                 </div>
             <% } else { %>
-                <p class="block">No orders</p>
+                <p class="block">Нет заказов</p>
             <% } %>
             <br/>            
         </script>
@@ -1253,7 +1252,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a href="#" onclick="gotoAdminOrderList(true);" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>View Order Details</span>
+                <span>Детали заказа</span>
             </div>
         </div>
         <div data-role="content">
@@ -1266,28 +1265,28 @@
         <ul data-role="listview" data-inset="true">            
             <li>
                 <div class="custom-table block view-order-table">
-                    <span>Order <b>#<%=order.id%></b>
+                    <span>заказ <b>#<%=order.id%></b>
                     <% if(typeof source_app != 'undefined' && source_app == 'meal_usa') { %>
-                        from <b>Website</b>
+                        с <b>сайта</b>
                     <% } else { %>
-                        from <b>Mobile App</b>                                    
+                        с <b>Приложения</b>                                    
                     <% } %></span></br>                    
-                    <span>Status: <b><%=admin.normaliseStatus(order.status)%></b></span></br> 
+                    <span>Статус: <b><%=admin.normaliseStatus(order.status)%></b></span></br> 
                     <div>
-                        <span>Location: <b><%=order.restaurant_location.name%></b></span>
-                        <span>When Needed: <b><%=order.time_requested%></b></span>
-                        <span>Order Type: <b><%=order.order_acceptance%></b></span>
+                        <span>Локация: <b><%=order.restaurant_location.name%></b></span>
+                        <span>Когда нужно: <b><%=order.time_requested%></b></span>
+                        <span>Тип заказа: <b><%=order.order_acceptance%></b></span>
                         <% if(order.delivery) { %>
-                            <span style="white-space: normal;">Address: <b>
+                            <span style="white-space: normal;">Адрес: <b>
                                 <%=order.delivery.address%> <%=order.delivery.address_2%> <%=order.delivery.city%> <%=order.delivery.state%> <%=order.delivery.zip_code%>
                             </b></span>
                         <% } %>
                     </div>
                     <div>
-                        <span>Order Name: <b><%=unescape(order.name)%></b></span>
+                        <span>Имя заказа: <b><%=unescape(order.name)%></b></span>
                         <span>Email: <b><%=order.user.email%></b></span>
-                        <span>Customer: <b><%=order.user.first_name%> <%=order.user.last_name%></b></span>
-                        <span>Phone: <b><%=order.user.phone%></b></span>
+                        <span>Заказчик: <b><%=order.user.first_name%> <%=order.user.last_name%></b></span>
+                        <span>Телефон <b><%=order.user.phone%></b></span>
                     </div>
                 </div>
             </li>
@@ -1295,10 +1294,10 @@
         <table class="simple">
             <tbody>
                 <tr>
-                    <td>Category</td>
-                    <td>Item</td>
-                    <td>Quantity</td>
-                    <td>Total</td>
+                    <td>Категория</td>
+                    <td>Айтем</td>
+                    <td>Количество</td>
+                    <td>Итого</td>
                 </tr>
                 <% _.each(order.order_items, function(item) { %>
                     <tr>
@@ -1306,18 +1305,18 @@
                         <td style="word-break: break-all;">
                             <%=item.menu_item%>: <span class="currency"><%=item.cost%></span>
                             <% if (item.customization_items && item.customization_items.length > 0) { %>
-                                <br/><i>Customizations:</i>
+                                <br/><i>Дополнения:</i>
                                 <% _.each(item.customization_items, function(customizationItem) { %> 
                                     <br/><%=customizationItem.name%>: <span class="currency"><%=customizationItem.cost%></span>
                                 <% }); %>
                             <% } %>
-                            <br/><u><i>Item total:</i> <span class="currency"><%=item.total_cost / item.quantity%></span></u>
+                            <br/><u><i>Итого за айтем:</i> <span class="currency"><%=item.total_cost / item.quantity%></span></u>
                             </br>
                             <% if (item.special_instructions) { %>
-                                <br/><i>Instructions:</i><br/><%=item.special_instructions%>
+                                <br/><i>Инструкции:</i><br/><%=item.special_instructions%>
                             <% } %>
                             <% if (item.comment) { %>
-                                <br/><i>Comment:</i><br/><%=item.comment%>                            
+                                <br/><i>Коментарий:</i><br/><%=item.comment%>                            
                             <% } %>
                         </td>
                         <td>
@@ -1334,22 +1333,22 @@
             <li>
                 <div class="custom-table view-order-table">
                     <div>
-                        <span>Subtotal: <b class='currency'><%=order.cost%></b></span>
+                        <span>Промеж. итог: <b class='currency'><%=order.cost%></b></span>
                         <span>Tax: <b class='currency'><%=order.tax%></b></span>
-                        <span>Tip: <b class='currency'><%=order.tips%></b> <b>(<% if(order.tips_percent) { %><%=order.tips_percent%><% } else { %>0<% } %>%)</b></span>
-                        <span>Total: <b class='currency'><%=order.total_cost%></b></span>
+                        <span>Чаевые: <b class='currency'><%=order.tips%></b> <b>(<% if(order.tips_percent) { %><%=order.tips_percent%><% } else { %>0<% } %>%)</b></span>
+                        <span>Итого: <b class='currency'><%=order.total_cost%></b></span>
                     </div>
                     <div>
-                        <span>Payment Type:</br><b><%=admin.normalisePaymentType(order.payment_type)%></b></span>
+                        <span>Тип оплаты:</br><b><%=admin.normalisePaymentType(order.payment_type)%></b></span>
                     </div>
                 </div>
             </li>
         </ul>
         <div class="block">
-            <a href="#" onclick="adminChangeStatus(<%=order.id%>, 'BEING_PREPARED'<% if(typeof source_app != 'undefined' && source_app) { %>, '<%=source_app%>'<% } %>);" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-check <% if(order.status == 'BEING_PREPARED') { %> ui-disabled <% } %>">Being Prepared</a>
-            <a href="#" onclick="adminChangeStatus(<%=order.id%>, 'READY'<% if(typeof source_app != 'undefined' && source_app) { %>, '<%=source_app%>'<% } %>);" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-shop <% if(order.status == 'READY') { %> ui-disabled <% } %>">Order Ready</a>
+            <a href="#" onclick="adminChangeStatus(<%=order.id%>, 'BEING_PREPARED'<% if(typeof source_app != 'undefined' && source_app) { %>, '<%=source_app%>'<% } %>);" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-check <% if(order.status == 'BEING_PREPARED') { %> ui-disabled <% } %>">Готовится</a>
+            <a href="#" onclick="adminChangeStatus(<%=order.id%>, 'READY'<% if(typeof source_app != 'undefined' && source_app) { %>, '<%=source_app%>'<% } %>);" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-shop <% if(order.status == 'READY') { %> ui-disabled <% } %>">Готово</a>
             <% if(order.payment_type != 'CREDIT_CARD') { %>
-                <a href="#" onclick="adminChangeStatus(<%=order.id%>, 'CANCELED_BY_RESTAURANT'<% if(typeof source_app != 'undefined' && source_app) { %>, '<%=source_app%>'<% } %>);" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-delete <% if(order.status == 'CANCELED_BY_RESTAURANT') { %> ui-disabled <% } %>">Reject Order</a>
+                <a href="#" onclick="adminChangeStatus(<%=order.id%>, 'CANCELED_BY_RESTAURANT'<% if(typeof source_app != 'undefined' && source_app) { %>, '<%=source_app%>'<% } %>);" class="ui-btn ui-btn-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-delete <% if(order.status == 'CANCELED_BY_RESTAURANT') { %> ui-disabled <% } %>">Отклонить</a>
             <% } %>
         </div>
         <br/>
@@ -1360,20 +1359,20 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Order Details</span>
+                <span>Детали заказа</span>
             </div>
         </div>
         <div data-role="content" class="adaptive"> <!-- Dynamic content --> </div>
         <script id="order-info-template" type="text/template">
             <% if(coupons && coupons.length > 0) { %>
                 <div data-role="fieldcontain" class="block">
-                    <span>Select coupons:</span><br/>
+                    <span>Выберите купоны:</span><br/>
                     <select id="coupons-select" data-native-menu="false">
-                        <option value="default" selected class="js-static">Without Coupons</option>
+                        <option value="default" selected class="js-static">Без купонов</option>
                         <% _.each(coupons, function(coupon) { %>
                             <option value="<%=coupon.id%>" <% if(coupon.coupon_type == 'BUNDLE_OFFER' && $('#payment-type :radio:checked').val() == 'CREDIT_CARD') { %> disabled <% } %>>
                                 <% if(coupon.coupon_type == 'BUNDLE_OFFER' && $('#payment-type :radio:checked').val() == 'CREDIT_CARD') { %> 
-                                    <b>Not applicable with credit card</b>
+                                    <b>Не применимы с кредиткой</b>
                                 <% } %>
                                 <%= coupon.name || "Coupon" %>
                                 <% if (coupon.description) { %>
@@ -1389,7 +1388,7 @@
             <% } %>
             <ul data-role="listview" data-inset="true" class="details-list">
                 <li>
-                    Order #<%=order.id%>:<span class="ui-li-count"><%=unescape(order.name)%></span>
+                    Заказ #<%=order.id%>:<span class="ui-li-count"><%=unescape(order.name)%></span>
                 </li>
                 <% _.each(order.order_items, function(item) { %>
                     <li class="orderItem">
@@ -1397,28 +1396,28 @@
                             <img src="<%=item.imageUrl%>"/>
                         <% } %>
                         <h2><%=item.name%></h2>
-                        <small>Quantity: <%=item.quantity%></small>
+                        <small>Количество: <%=item.quantity%></small>
                         <% if (item.total_cost && item.total_cost > 0) { %>
                             <span class="ui-li-count currency"><%=item.total_cost%></span>
                         <% } %>
                     </li>
                 <% }); %>
-                <li data-role="list-divider">Price details</li>
-                <li>Subtotal<span class='currency ui-li-count'><%=order.cost%></span></li>
+                <li data-role="list-divider">Детали цены</li>
+                <li>Промеж. цена<span class='currency ui-li-count'><%=order.cost%></span></li>
                 <% if (order.delivery_charge) { %>
-                    <li>Delivery charge<span class='currency ui-li-count'><%=order.delivery_charge%></span></li>
+                    <li>Цена доставки<span class='currency ui-li-count'><%=order.delivery_charge%></span></li>
                 <% } %>
                 <li>Tax<span class='currency ui-li-count'><%=order.tax%></span></li>
-                <li>Tips <% if(order.tips_percent != null) { %><%=order.tips_percent%><% } else { %>0<% } %>%<span class='currency ui-li-count'><%=order.tips %></span></li>
-                <li>Total<span class='currency ui-li-count'><%=order.total_cost%></span></li>
+                <li>Чаевые <% if(order.tips_percent != null) { %><%=order.tips_percent%><% } else { %>0<% } %>%<span class='currency ui-li-count'><%=order.tips %></span></li>
+                <li>Итого<span class='currency ui-li-count'><%=order.total_cost%></span></li>
 
-                <li data-role="list-divider">Delivery details</li>
-                <li style="white-space: initial;">Location: <%=locationInfo%></li>
-                <li>Delivery<span class='ui-li-count'><%=$('#delivery-type :radio:checked').val()%></span></li>
-                <li>When need it<span class='ui-li-count'><%=$('#ready-time-select option:selected').val()%></span></li>
-                <li>Payment type<span class='ui-li-count'><%=$('#payment-type :radio:checked').val().replace('_', ' ')%></span></li>
+                <li data-role="list-divider">Детали доставки</li>
+                <li style="white-space: initial;">Локация: <%=locationInfo%></li>
+                <li>Доставка<span class='ui-li-count'><%=$('#delivery-type :radio:checked').val()%></span></li>
+                <li>Когда нужно<span class='ui-li-count'><%=$('#ready-time-select option:selected').val()%></span></li>
+                <li>Тип оплаты<span class='ui-li-count'><%=$('#payment-type :radio:checked').val().replace('_', ' ')%></span></li>
             </ul>            
-            <a href="#" onclick="order.submit();" data-role="button" data-icon="check">Submit order</a>        
+            <a href="#" onclick="order.submit();" data-role="button" data-icon="check">Подтвердить заказ</a>        
         </script>
         <div data-role="footer"></div>
     </div>
@@ -1428,7 +1427,7 @@
             <img src="img/restaurant/header.png"/>
             <div>
                 <a onclick="menuViewer.goBack();" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
-                <span>Our Menu</span>
+                <span>Наше меню</span>
             </div>
         </div>
 
@@ -1461,7 +1460,7 @@
                     <h2><%=category.name%></h2>
                     <p><%=category.description%></p>
                     <% if (category.restriction) { %>
-                        <p><b>Restrictions: <%=category.restriction%></b></p>
+                        <p><b>Противопоказания: <%=category.restriction%></b></p>
                     <% } %>
                 </li>
                 <% _.each(category.menu_items, function(item) { %>
@@ -1490,38 +1489,38 @@
         <% } else if(category.subcategories.length > 0) { %>
 
         <% } else { %>
-            <p class="block">No menu items</p>
+            <p class="block">Нет меню айтемов</p>
         <% } %>
     </script>
 
     <script id="no-categories-template" type="text/template">
-        <p class="block">No categories</p>
+        <p class="block">Нет категорий</p>
     </script>
     
     <script id="footer-template" type="text/template">
         <div data-role="navbar" id="footer">
             <ul class="ui-body-c">
                 <li>
-                    <a href="#" onclick="gotoScreen('#home-page', true);" data-icon="custom-home">Home</a>
+                    <a href="#" onclick="gotoScreen('#home-page', true);" data-icon="custom-home">Домой</a>
                 </li>
 
                 <li>
-                    <a href="#" onclick="menuViewer.displayWholeMenu(MAIN_MENU_QUERY);" data-icon="custom-menu">Menu</a>
+                    <a href="#" onclick="menuViewer.displayWholeMenu(MAIN_MENU_QUERY);" data-icon="custom-menu">Меню</a>
                 </li>
 
                 <% if(!view_only) { %>
                     <li id="checkout-footer-button">
-                        <a href="#" onclick="gotoViewOrderScreen();" data-icon="custom-checkout">Checkout</a>
+                        <a href="#" onclick="gotoViewOrderScreen();" data-icon="custom-checkout">Корзина</a>
                     </li>
                 <% } %>
             
                 <% if(specials_allowed) { %>
                     <li id="specials-footer-button">
-                        <a href="#" onclick="menuViewer.displayWholeMenu(SPECIALS_MENU_QUERY);" data-icon="custom-specials">Specials</a>
+                        <a href="#" onclick="menuViewer.displayWholeMenu(SPECIALS_MENU_QUERY);" data-icon="custom-specials">Акции</a>
                     </li>
                 <% } %>
                 <li>
-                    <a href="#" onclick="callUs(false);" data-icon="custom-call">Call Us</a>
+                    <a href="#" onclick="callUs(false);" data-icon="custom-call">Позвонить</a>
                 </li>
             </ul>
         </div>
