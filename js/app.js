@@ -176,7 +176,15 @@ var restaurant = {
     }
 };
 
-document.addEventListener("deviceready", restaurant.init, true);
+if (isDevice()) {
+    document.addEventListener("deviceready", restaurant.init, true);
+} else {
+    $(document).ready(restaurant.init);
+}
+
+function isDevice() {
+    return navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/);
+}
 
 $.validator.addMethod(
     'phoneRegexp', function(value, element, regexp) {

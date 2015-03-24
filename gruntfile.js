@@ -142,10 +142,10 @@ module.exports = function(grunt) {
                 src: ['<%= develFolder %>/index.html', '<%= develFolder %>/config.xml', '<%= develFolder %>/<%= compressedJsName %>'],
                 overwrite: true,
                 replacements: [
-                    { from: "#app-token#", to: "712983c76424fa58fe436a91fd46762d" },
-                    { from: "#restaurant-name#", to: "TemplateApp" },
-                    { from: "#bundle-id#", to: "com.myrestaurantmobile.templateapp" },
-                    { from: "#theme-section#", to: "chinese" },
+                    { from: "#app-token#", to: "b6ef1bd03c780d6e85487d871148c195" },
+                    { from: "#restaurant-name#", to: "stolovaya" },
+                    { from: "#bundle-id#", to: "by.grsu.stolovaya" },
+                    { from: "#theme-section#", to: "sushi" },
                     { from: "#app-version#", to: "1.0.0" }
                 ]
             },
@@ -167,7 +167,7 @@ module.exports = function(grunt) {
                 src: ['<%= develFolder %>/<%= compressedJsName %>'],
                 overwrite: true,
                 replacements: [
-                    { from: "#services-address#", to: "<%= stagingUrl %>" }
+                    { from: "#services-address#", to: "<%= productionUrl %>" }
                 ]
             },
             publishBuild: {
